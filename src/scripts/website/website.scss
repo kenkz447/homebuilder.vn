@@ -6,6 +6,7 @@ html {
 html,
 body {
     height: unset;
+    overflow-y: visible;
 }
 
 *,
@@ -39,6 +40,10 @@ label,
 strong {
     font-family: 'Roboto Mono', helvetica, sans-serif;
     cursor: inherit;
+}
+
+button:focus {
+    outline: none;
 }
 
 #root {

@@ -5,10 +5,10 @@ import { ImageProps, Img } from '../generic'
 
 interface CardProps {
     image?: ImageProps
-    title?: React.ReactType
-    extra?: React.ReactType
-    metaTags?: React.ReactType
-    footer?: React.ReactType
+    title?: JSX.Element
+    extra?: JSX.Element
+    metaTags?: JSX.Element
+    footer?: JSX.Element
 }
 
 export function Card(props: CardProps) {

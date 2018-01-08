@@ -7,6 +7,8 @@ import { LayoutDetailPath } from '../../paths'
 import { LayoutAndImages, ContactUsButton } from './containers'
 
 const packageCarpentry = require('images/package-carpentry.png')
+const livingRoom = require('images/living-room.png')
+const sampleProduct = require('images/sample-product.jpg')
 
 export class Page extends React.Component {
     render() {
@@ -55,7 +57,7 @@ export class Page extends React.Component {
                                 <Col key={o} span={8} md={{ span: 4 }} lg={{ span: 3 }}>
                                     <div className="include-item text-center mb-3">
                                         <ImgWrapper className="mb-2 p-4" circle>
-                                            <Img src={packageCarpentry} />
+                                            <Img src={livingRoom} />
                                         </ImgWrapper>
                                         <label className="include-item-label">Living room</label>
                                     </div>
@@ -71,13 +73,13 @@ export class Page extends React.Component {
                                     <AppNavLink className="product-link" to={`${location.pathname}/${o}`}>
                                         <div className="product-list-item clearfix mb-3">
                                             <ImgWrapper className="product-list-item-image">
-                                                <Img />
+                                                <Img src={sampleProduct} />
                                             </ImgWrapper>
                                             <div className="product-list-item-info pt-3 pl-4">
                                                 <p className="project-detail-properties">
                                                     <strong className="property-value font-family-roboto-mono">Dressing Table OP2</strong> <br />
                                                     <small className="property-name">Curator9102</small> | <small className="property-name"> Table</small><br />
-                                                    <span className="property-name">Quantity</span>: <strong className="property-value font-family-roboto-mono">1</strong><br />
+                                                    <span className="property-name">Quantity</span>: <strong className="property-value font-family-roboto-mono">{o + 1}</strong><br />
                                                 </p>
                                             </div>
                                         </div>

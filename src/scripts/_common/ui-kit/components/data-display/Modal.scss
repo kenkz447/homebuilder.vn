@@ -9,15 +9,15 @@
     left: 50%;
     border: 1px solid #f2f2f2;
     box-shadow: 0 4px 29px rgba(0, 0, 0, .22), 0 0 0 1px rgba(0, 0, 0, .04);
-    -webkit-transform: translate(-50%, 50%);
     transform: translate(-50%, 50%);
     z-index: 9999999;
     box-sizing: border-box;
     opacity: 0;
-    -webkit-transition: opacity .6s cubic-bezier(.82, 0, .12, 1), -webkit-transform .8s cubic-bezier(.82, 0, .12, 1);
-    transition: opacity .6s cubic-bezier(.82, 0, .12, 1), -webkit-transform .8s cubic-bezier(.82, 0, .12, 1);
     transition: transform .8s cubic-bezier(.82, 0, .12, 1), opacity .6s cubic-bezier(.82, 0, .12, 1);
-    transition: transform .8s cubic-bezier(.82, 0, .12, 1), opacity .6s cubic-bezier(.82, 0, .12, 1), -webkit-transform .8s cubic-bezier(.82, 0, .12, 1);
+    &.small {
+        max-width: 600px;
+        height: 65vh;
+    }
     &-overlay {
         position: fixed;
         top: 0;
@@ -29,8 +29,7 @@
         background: -webkit-gradient(radial, 50% 25%, 0, 50% 25%, 800, from(hsla(0, 0%, 99%, .9)), to(#f2f2f2)) transparent;
         background: -moz-radial-gradient(center 45deg, circle cover, hsla(0, 0%, 99%, .9) 0, #f2f2f2 100%) transparent;
         opacity: 0;
-        -webkit-transition: opacity .7s cubic-bezier(.82, 0, .12, 1);
-        transition: opacity .7s cubic-bezier(.82, 0, .12, 1);
+        transition: opacity .7s cubic-bezier(.82, 0, .12, 1)
     }
     &-wrapper {
         &.open {
@@ -63,6 +62,8 @@
         padding: .7rem 1.5rem;
         border-bottom: 2px solid #f2f2f2;
         width: 100%;
+        text-transform: uppercase;
+        color: #000;
     }
     &-body {
         display: flex;
