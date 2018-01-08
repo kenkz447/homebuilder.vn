@@ -11,7 +11,7 @@ module.exports = {
     },
     output: {
         publicPath: '/',
-        path: path.join(__dirname, '..', 'web-app-host', 'public'),
+        path: path.join(__dirname, '..', 'client-host', 'public'),
         filename: 'app.[hash].js'
     },
     plugins: [
@@ -21,7 +21,7 @@ module.exports = {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
