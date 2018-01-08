@@ -1,0 +1,88 @@
+html {
+    font-size: 14px;
+    overflow-y: visible;
+}
+
+html,
+body {
+    height: unset;
+}
+
+*,
+a,
+h4,
+h5,
+h6,
+p {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-family: roboto, helvetica, sans-serif;
+    line-height: 2;
+    outline: none;
+    word-break: break-word;
+}
+
+h1,
+h2,
+h3,
+{
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 4px;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+label,
+strong {
+    font-family: 'Roboto Mono', helvetica, sans-serif;
+    cursor: inherit;
+}
+
+#root {
+    min-height: 100%;
+    background: #FCFCFC
+}
+
+.font-family-roboto-mono {
+    font-family: 'Roboto Mono', helvetica, sans-serif;
+}
+
+.text {
+    &-black {
+        color: #000!important;
+    }
+}
+
+.list-horizontal {
+    list-style: none;
+    >li {
+        display: inline-block;
+    }
+}
+
+.contact-button {
+    color: #000;
+    margin: 0;
+    background: none;
+    border: 2px solid;
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: .2rem 1rem;
+    cursor: pointer;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.noscroll {
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+}

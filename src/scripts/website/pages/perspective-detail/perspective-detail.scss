@@ -1,0 +1,54 @@
+.white-section {
+    background: #fff;
+}
+
+.product-link,
+.product-link:hover {
+    color: inherit;
+}
+
+.product-list-item {
+    background: #fff;
+    &-image {
+        float: left;
+        max-width: 125px;
+    }
+    &-info {
+        float: left;
+    }
+}
+
+.include-item {
+    &-label {
+        font-size: .9rem;
+        letter-spacing: -1px;
+        @media screen and (min-width: 768px) {
+            font-size: unset;
+            letter-spacing: 0;
+        }
+    }
+}
+
+.perspective-detail {
+    .slick {
+        &-slider {
+            margin: 0 -10px;
+        }
+        &-slide {
+            padding: 0 10px;
+        }
+        &-prev,
+        &-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        &-prev {
+            left: 15px;
+        }
+        &-next {
+            right: 15px;
+        }
+    }
+}

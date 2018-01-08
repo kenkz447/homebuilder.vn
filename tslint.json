@@ -1,0 +1,19 @@
+{
+    "defaultSeverity": "warning",
+    "linterOptions": {
+        "typeCheck": true
+    },
+    "rules": {
+        "class-name": true,
+        "max-file-line-count": [true, 256],
+        "prefer-const": true,
+        "prefer-template": true,
+        "quotemark": [true, "single", "jsx-double"],
+        "no-unused-variable": true,
+        "no-consecutive-blank-lines": true,
+        "semicolon": [
+            true,
+            "never"
+        ]
+    }
+}
