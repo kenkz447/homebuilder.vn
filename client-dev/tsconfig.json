@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "images": ["src/images"],
+            "scripts/*": ["src/scripts/*"]
+        },
+        "allowJs": false,
+        "jsx": "react",
+        "lib": [
+            "dom",
+            "es2017",
+            "esnext.asynciterable"
+        ],
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "sourceMap": true,
+        "target": "es2016",
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "noUnusedLocals": true,
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

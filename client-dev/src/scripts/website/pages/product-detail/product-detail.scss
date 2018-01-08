@@ -1,0 +1,31 @@
+.product-detail {
+    .slick {
+        &-slider {
+            //height: 420px!important;
+            img {
+                pointer-events: none
+            }
+        }
+        &-list {
+            //height: 420px!important;
+        }
+        &-slide {
+            border: 0;
+            border-bottom: 5px solid transparent;
+        }
+        &-prev,
+        &-next {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) rotate(90deg);
+            z-index: 1;
+        }
+        &-prev {
+            top: 10px;
+        }
+        &-next {
+            bottom: 10px;
+        }
+    }
+    &-image {}
+}

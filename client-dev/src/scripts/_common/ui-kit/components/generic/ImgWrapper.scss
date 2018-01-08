@@ -1,0 +1,17 @@
+.img-wrapper {
+    overflow: hidden;
+    &.circle {
+        border-radius: 50%;
+    }
+    &.use-ratio {
+        position: relative;
+        width: 100%;
+        img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100%;
+        }
+    }
+}
