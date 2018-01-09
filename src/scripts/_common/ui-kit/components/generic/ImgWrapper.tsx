@@ -7,6 +7,7 @@ export interface ImageWrapperProps extends React.HTMLAttributes<any> {
     component?: React.ReactType
     ratioX?: number
     ratioY?: number
+    hoverEffect?: 'scale-up'
 }
 
 class ImgWrapper extends React.Component<ImageWrapperProps> {
@@ -19,6 +20,7 @@ class ImgWrapper extends React.Component<ImageWrapperProps> {
         props.className = classNames(
             'img-wrapper',
             this.props.className,
+            this.props.hoverEffect,
             { 'circle': this.props.circle == true }
         )
 

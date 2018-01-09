@@ -20,7 +20,7 @@ export class Page extends React.Component {
                                     <Col span={24} md={{ span: 12 }} xl={{ span: 8 }}>
                                         <AppNavLink to="/sample-project">
                                             <Card
-                                                title={<label>Good view</label>}
+                                                title={<label>Gold view</label>}
                                                 extra={<span className="font-family-roboto-mono">50.000.000 - 200.000.000 VNĐ</span>}
                                                 metaTags={<small>Apartment</small>}
                                             />

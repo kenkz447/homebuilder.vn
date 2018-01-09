@@ -1,11 +1,13 @@
 import './layout-detail.scss'
 import * as React from 'react'
-import { Row, Col, Img, Icon, QueueAnim } from 'scripts/_common/ui-kit'
+import { Row, Col, Img, Icon, QueueAnim, ImgWrapper } from 'scripts/_common/ui-kit'
 import { MainMaster } from '../../layout'
 import { AppNavLink } from 'scripts/_core'
 import { PrepectiveDetailPath } from '../../paths'
 
 const sampleLayout = require('images/sample-layout.jpg')
+const samplePerspective = require('images/sample-perspective.jpg')
+
 export class Page extends React.Component {
     render() {
         return (
@@ -30,7 +32,9 @@ export class Page extends React.Component {
                                 </Col>
                                 <Col span={24} md={{ span: 12 }} lg={{ span: 24 }}>
                                     <div className="mb-3">
-                                        <Img src={sampleLayout} />
+                                        <ImgWrapper ratioX={4} ratioY={3}>
+                                            <Img src={sampleLayout} />
+                                        </ImgWrapper>
                                     </div>
                                 </Col>
                             </Row>
@@ -45,7 +49,9 @@ export class Page extends React.Component {
                                         <Col key={o} span={12} md={{ span: 8 }}>
                                             <AppNavLink to={PrepectiveDetailPath.path.replace(':perspective', String(o))}>
                                                 <div className="perspective-item mb-3">
-                                                    <Img />
+                                                    <ImgWrapper ratioX={1} ratioY={1}>    
+                                                        <Img src={samplePerspective} />
+                                                    </ImgWrapper>    
                                                     <label className="perspective-item-label">RG 109-S.04</label>
                                                 </div>
                                             </AppNavLink>

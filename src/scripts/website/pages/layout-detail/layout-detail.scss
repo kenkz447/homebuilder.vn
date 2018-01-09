@@ -19,15 +19,7 @@
     }
     &-item {
         position: relative;
-        width: 100%;
-        padding-bottom: 100%;
         overflow: hidden;
-        img {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%)
-        }
         &-label {
             position: absolute;
             bottom: 0;

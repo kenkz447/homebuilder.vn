@@ -44,12 +44,6 @@
     &-item {
         overflow: hidden;
         position: relative;
-        img {
-            transition: all .3s;
-            &:hover {
-                transform: scale(1.1);
-            }
-        }
         &-label {
             position: absolute;
             background: rgba(34, 34, 34, .55);

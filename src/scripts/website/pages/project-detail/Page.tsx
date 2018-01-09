@@ -1,6 +1,6 @@
 import './project-detail.scss'
 import * as React from 'react'
-import { Row, Col, Img, Icon, QueueAnim } from 'scripts/_common/ui-kit'
+import { Row, Col, Img, Icon, QueueAnim, ImgWrapper } from 'scripts/_common/ui-kit'
 import { MainMaster } from '../../layout'
 import { AppNavLink } from 'scripts/_core'
 import { LayoutDetailPath } from '../../paths'
@@ -12,6 +12,9 @@ interface PageProps {
         sitemapImage?: any
     }
 }
+
+const sampleLayout = require('images/sample-layout.jpg')
+const sampleProject = require('images/sample-project.jpg')
 
 export class Page extends React.Component<PageProps> {
     static defaultProps: PageProps = {
@@ -25,7 +28,9 @@ export class Page extends React.Component<PageProps> {
                     {this.renderToAllProjectLink({ className: 'back-link top d-block d-lg-none' })}
                     <Row gutter={30} className="mb-5">
                         <Col span={24} md={{ span: 12 }} lg={{ span: 10 }} xl={{ span: 8 }}>
-                            <Img />
+                            <ImgWrapper ratioX={1} ratioY={1}>
+                                <Img src={sampleProject} />
+                            </ImgWrapper>
                         </Col>
                         <Col span={24} md={{ span: 24 }} lg={{ span: 14 }} xl={{ span: 16 }}>
                             {this.renderToAllProjectLink({ className: 'back-link d-none d-lg-block' })}
@@ -71,7 +76,9 @@ export class Page extends React.Component<PageProps> {
                                         <Col key={o} span={24} md={{ span: 12 }} lg={{ span: 8 }} xl={{ span: 6 }}>
                                             <AppNavLink to={LayoutDetailPath.path.replace(':layout', String(o))}>
                                                 <div className="room-type-item mb-4">
-                                                    <Img />
+                                                    <ImgWrapper hoverEffect="scale-up" ratioX={4} ratioY={3}>
+                                                        <Img src={sampleLayout} />
+                                                    </ImgWrapper>
                                                     <label className="room-type-item-label">109-S.04</label>
                                                 </div>
                                             </AppNavLink>
