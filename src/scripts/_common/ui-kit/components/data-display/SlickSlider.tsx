@@ -11,7 +11,7 @@ interface OwnProps extends Settings {
     renderItem?(item, index): JSX.Element
 }
 
-export class Carousel extends React.Component<OwnProps> {
+export class SlickSlider extends React.Component<OwnProps> {
 
     static renderNextArrow = (props) => (
         <div className="slick-prev">
@@ -30,8 +30,8 @@ export class Carousel extends React.Component<OwnProps> {
     static defaultProps: OwnProps = {
         slidesToShow: 1,
         pictures: [],
-        nextArrow: <Carousel.renderPrevArrow />,
-        prevArrow: <Carousel.renderNextArrow />,
+        nextArrow: <SlickSlider.renderPrevArrow />,
+        prevArrow: <SlickSlider.renderNextArrow />,
         arrows: true,
         lazyLoad: true, 
         infinite: false,

@@ -10,8 +10,8 @@ export function MasterHeader() {
             </div>
             <div>
                 <ul className="nav-menu">
-                    <AppNavLink className="nav-menu-link" to="/">project</AppNavLink>
-                    <AppNavLink className="nav-menu-link" to="/blog">blog</AppNavLink>
+                    <AppNavLink className="nav-menu-link" to="/" exact>project</AppNavLink>
+                    <AppNavLink className="nav-menu-link" to="/blogs">blogs</AppNavLink>
                     <AppNavLink className="nav-menu-link" to="/contact">contact</AppNavLink>
                 </ul>
             </div>

@@ -1,6 +1,6 @@
 import './product-detail.scss'
 import * as React from 'react'
-import { Row, Col, Img, Icon, ImgWrapper, Carousel, QueueAnim } from 'scripts/_common/ui-kit'
+import { Row, Col, Img, Icon, ImgWrapper, SlickSlider, QueueAnim } from 'scripts/_common/ui-kit'
 import { MainMaster } from '../../layout'
 import { AppNavLink } from 'scripts/_core'
 import { PrepectiveDetailPath } from '../../paths'
@@ -69,7 +69,7 @@ export class Page extends React.Component {
 
     renderImages() {
         return (
-            <Carousel pictures={[{}, {}, {}, {}, {}, {}, {}]}
+            <SlickSlider pictures={[{}, {}, {}, {}, {}, {}, {}]}
                 slidesToShow={3}
                 vertical
                 responsive={[{

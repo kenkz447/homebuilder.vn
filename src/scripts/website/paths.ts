@@ -6,6 +6,12 @@ export const HomePath: ViewRoute = {
     exact: true
 }
 
+export const BlogsPath: ViewRoute = {
+    path: '/blogs',
+    allowAnonymous: true,
+    exact: true
+}
+
 export const ProjectDetailPath: ViewRoute = {
     path: '/:project',
     allowAnonymous: true,

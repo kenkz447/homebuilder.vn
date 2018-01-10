@@ -1,4 +1,5 @@
 export * from './Card'
-export * from './Carousel'
+export * from './SlickSlider'
 export * from './Viewer'
 export * from './Modal'
+export * from './full-screen-carousel'

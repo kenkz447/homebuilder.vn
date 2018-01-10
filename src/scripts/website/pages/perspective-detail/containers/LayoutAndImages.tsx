@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Viewer, ImageWithSrcProps, defaultImage, Carousel, ImgWrapper, Img, Col, Row } from 'scripts/_common/ui-kit'
+import { Viewer, ImageWithSrcProps, defaultImage, SlickSlider, ImgWrapper, Img, Col, Row } from 'scripts/_common/ui-kit'
 
 import { autobind } from 'core-decorators'
 
@@ -29,7 +29,7 @@ export class LayoutAndImages extends React.Component<LayoutAndImagesProps> {
             <>
             <Row className="mb-4">
                 <Col span={24} className="mb-4">
-                    <ImgWrapper ratioX={1} ratioY={1} >
+                    <ImgWrapper ratioX={4} ratioY={3} >
                         <Img src={sampleLayout} />
                     </ImgWrapper>
                 </Col>
@@ -44,7 +44,7 @@ export class LayoutAndImages extends React.Component<LayoutAndImagesProps> {
 
     renderImages() {
         return (
-            <Carousel pictures={this.props.pictures}
+            <SlickSlider pictures={this.props.pictures}
                 slidesToShow={6}
                 responsive={[{
                     breakpoint: 767,

@@ -17,6 +17,7 @@ $transform-base: translateX(-50%);
     }
     img {
         transition: all .3s;
+        pointer-events: none;
     }
     &.scale-up:hover {
         img {
