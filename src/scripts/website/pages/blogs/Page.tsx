@@ -1,8 +1,10 @@
 import './blogs.scss'
 import * as React from 'react'
 import { ConnectedMasterWrapper, MasterHeader, MasterFooter } from '../../layout'
-import { FullScreenCarousel, Content, Fade, Layout } from 'scripts/_common/ui-kit'
+import { FullScreenCarousel, Content, Fade, Layout, ImgWrapper, Img } from 'scripts/_common/ui-kit'
 import { AppNavLink } from 'scripts/_core/localization'
+
+const scrollToElement = require('scroll-to-element')
 
 const blogBg01 = require('images/blog-background.jpg')
 const blogBg02 = require('images/blog-background-2.jpg')
@@ -11,8 +13,8 @@ const blogBg03 = require('images/blog-background-3.jpg')
 export class Page extends React.Component {
     render() {
         return (
-            <div>
-                <Fade>
+            <div className="app">
+                <Fade className="blog-header-wrapper">
                     <ConnectedMasterWrapper>
                         <div className="blogs-carousel-wrapper">
                             <FullScreenCarousel loop auto>
@@ -39,11 +41,11 @@ export class Page extends React.Component {
                         </div>
                         <MasterHeader />
                         <div className="scrolldown">
-                            <a href="#thanks"><span /></a>
+                            <a onClick={() => scrollToElement('#oldBlogs')}><span /></a>
                         </div>
                     </ConnectedMasterWrapper>
                 </Fade>
-                <Layout className="app">
+                <Layout id="oldBlogs">
                     <Content className="main">
                         <ul className="post-list mt-0 mt-md-5">
                             {
@@ -51,6 +53,11 @@ export class Page extends React.Component {
                                     return (
                                         <li key={o} className="post-item mb-4 mb-md-5">
                                             <label className="post-date">JAN {o}</label>
+                                            <div className="post-item-preview d-md-none">
+                                                <ImgWrapper ratioX={4} ratioY={3}>
+                                                    <Img baseOn="height" src={blogBg02} />
+                                                </ImgWrapper>
+                                            </div>
                                             <AppNavLink to="/blogs" className="smooth">
                                                 <h1>This is some neat blog post</h1>
                                                 <p>We love design, so much we breathe it. We make things for the better. We're specialized in both visual design and webdevelopment.</p>

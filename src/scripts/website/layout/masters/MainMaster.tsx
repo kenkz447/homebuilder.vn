@@ -8,7 +8,7 @@ import { Content, ContentTransition } from 'scripts/_common/ui-kit'
 export class MainMaster extends React.Component {
     render() {
         return (
-            <ConnectedMasterWrapper>
+            <ConnectedMasterWrapper className="app">
                 <MasterHeader />
                 <Content className="main">
                     <ContentTransition>

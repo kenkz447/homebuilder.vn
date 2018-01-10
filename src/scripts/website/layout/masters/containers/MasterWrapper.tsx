@@ -8,6 +8,7 @@ import { WebsiteRootState } from '../../../Types'
 interface StateProps {
     websiteSetting?: any
     children?: any
+    className?: string
 }
 
 interface DispatchProps {
@@ -19,7 +20,7 @@ function MasterWrapper(props: StateProps & DispatchProps) {
         props.getWebsiteSetting()
 
     return (
-        <Layout className="app">
+        <Layout className={props.className}>
             {props.children}
         </Layout>
     )

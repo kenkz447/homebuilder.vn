@@ -4,8 +4,8 @@ import './Viewer.scss'
 import { autobind } from 'core-decorators'
 import * as React from 'react'
 
-import { ImageWithSrcProps } from '../generic'
-import { default as ScrollLock } from 'react-scrolllock'
+import { ImageWithSrcProps, ScrollLocker } from '../generic'
+
 const ReactViewer = require('react-viewer')
 
 interface ViewerProps {
@@ -26,7 +26,7 @@ export class Viewer extends React.Component<ViewerProps> {
                 onMaskClick={this.close}
                 images={this.props.images}
             />
-            {this.state.visible && <ScrollLock />}
+            {this.state.visible && <ScrollLocker />}
             </>
         )
     }
@@ -37,17 +37,11 @@ export class Viewer extends React.Component<ViewerProps> {
         this.setState({
             visible: nextVisible,
             activeIndex: activeIndex
-        }, () => {
-            document.documentElement.style.paddingRight = '17px'
-            document.body.style.marginRight = '-17px'
         })
     }
 
     @autobind
     close() {
-        this.setState({ visible: false }, () => {
-            document.documentElement.style.paddingRight = '0'
-            document.body.style.marginRight = '0'
-        })
+        this.setState({ visible: false })
     }
 }
