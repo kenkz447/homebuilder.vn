@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Viewer, ImageWithSrcProps, defaultImage } from 'scripts/_common/ui-kit'
-import { autobind } from 'core-decorators';
+import { autobind } from 'core-decorators'
 
 interface LocationAndSitemapProps {
     location: ImageWithSrcProps

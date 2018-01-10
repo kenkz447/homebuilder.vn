@@ -8,7 +8,6 @@ import { ImageWithSrcProps } from '../generic'
 import { default as ScrollLock } from 'react-scrolllock'
 const ReactViewer = require('react-viewer')
 
-
 interface ViewerProps {
     images: Array<ImageWithSrcProps>
 }

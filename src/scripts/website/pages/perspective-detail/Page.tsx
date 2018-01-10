@@ -93,7 +93,6 @@ export class Page extends React.Component {
         )
     }
 
-
     renderBackToProjectLink({ className }) {
         return (
             <AppNavLink className={className} to={`${LayoutDetailPath.path.replace(':layout', 'sample-layout')}`}>

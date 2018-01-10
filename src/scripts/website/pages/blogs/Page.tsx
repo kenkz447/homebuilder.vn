@@ -6,6 +6,7 @@ import { AppNavLink } from 'scripts/_core/localization'
 
 const blogBg01 = require('images/blog-background.jpg')
 const blogBg02 = require('images/blog-background-2.jpg')
+const blogBg03 = require('images/blog-background-3.jpg')
 
 export class Page extends React.Component {
     render() {
@@ -16,7 +17,7 @@ export class Page extends React.Component {
                         <div className="blogs-carousel-wrapper">
                             <FullScreenCarousel loop auto>
                                 {
-                                    [blogBg01, blogBg02, blogBg01].map((o, i) => {
+                                    [blogBg01, blogBg02, blogBg03].map((o, i) => {
                                         return (
                                             <div className="blogs-carousel-item-wrapper" style={{ backgroundImage: `url(${o})` }}>
                                                 <div className="blogs-carousel-item">

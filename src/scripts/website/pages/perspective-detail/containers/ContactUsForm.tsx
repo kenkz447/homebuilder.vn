@@ -2,7 +2,7 @@ import * as React from 'react'
 import { autobind } from 'core-decorators'
 import { reduxForm, submit } from 'redux-form'
 import { getStore } from 'scripts/_core/app/state'
-import { Col, Row, VerticalInputWrapper, Input } from 'scripts/_common/ui-kit';
+import { Col, Row, VerticalInputWrapper, Input } from 'scripts/_common/ui-kit'
 
 function ContactUsForm(props) {
     return (
