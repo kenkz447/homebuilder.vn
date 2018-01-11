@@ -12,6 +12,12 @@ export const BlogsPath: ViewRoute = {
     exact: true
 }
 
+export const BlogDetailPath: ViewRoute = {
+    path: `${BlogsPath.path}/:blog`,
+    allowAnonymous: true,
+    exact: true
+}
+
 export const ProjectDetailPath: ViewRoute = {
     path: '/:project',
     allowAnonymous: true,

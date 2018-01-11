@@ -1,0 +1,99 @@
+.blog-detail {
+    &-navigation {
+        .next-post,
+        .previous-post {
+            color: #2e2e2e;
+            -webkit-transition: opacity .3s;
+            transition: opacity .3s;
+            .arrow {
+                position: absolute;
+                top: 50%;
+                margin-top: -15px;
+            }
+            .post-title {
+                font-size: 1.2em;
+                line-height: 2;
+                font-weight: 700;
+            }
+            &:focus,
+            &:hover {
+                text-decoration: none;
+                opacity: .5;
+                color: #2e2e2e;
+            }
+        }
+        .previous-post {
+            float: left;
+            padding-left: 25px;
+            position: relative;
+            .arrow {
+                float: left;
+                left: 0;
+            }
+        }
+        .next-post {
+            text-align: right;
+            float: right;
+            padding-right: 25px;
+            position: relative;
+            .arrow {
+                float: right;
+                right: 0;
+            }
+        }
+    }
+    &-info {
+        z-index: 1;
+        color: #fff;
+    }
+    &-title {
+        color: #fff;
+        font-size: 2rem;
+        margin-bottom: 0;
+    }
+    &-content {
+        p {
+            color: #000;
+        }
+        img {
+            max-width: 100%;
+            margin: 10px 0;
+            @media screen and (min-width: 768px) {
+                margin: 20px 0;
+            }
+        }
+    }
+    &-header {
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 30px;
+        &-wrapper {
+            height: 70vh;
+        }
+        &-bg {
+            height: 70vh;
+            overflow: hidden;
+            position: absolute;
+            top: 72px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-size: cover;
+            background-position: 50%;
+            &::before {
+                content: " ";
+                background: linear-gradient(transparent, transparent, black);
+                opacity: .4;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            @media screen and (min-width: 768px) {
+                top: 0;
+            }
+        }
+    }
+}

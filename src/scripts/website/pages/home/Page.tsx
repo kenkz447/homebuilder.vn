@@ -1,7 +1,7 @@
 import './home.scss'
 import * as React from 'react'
 import { MainMaster } from '../../layout'
-import { Row, Col, Card } from 'scripts/_common/ui-kit'
+import { Row, Col, Card, ImgWrapper, Img } from 'scripts/_common/ui-kit'
 import { AppNavLink } from 'scripts/_core'
 
 export class Page extends React.Component {
@@ -20,6 +20,7 @@ export class Page extends React.Component {
                                     <Col span={24} md={{ span: 12 }} xl={{ span: 8 }}>
                                         <AppNavLink to="/sample-project">
                                             <Card
+                                                image={<ImgWrapper ratioX={1} ratioY={1}><Img /></ImgWrapper>}    
                                                 title={<label>Gold view</label>}
                                                 extra={<span className="font-family-roboto-mono">50.000.000 - 200.000.000 VNĐ</span>}
                                                 metaTags={<small>Apartment</small>}

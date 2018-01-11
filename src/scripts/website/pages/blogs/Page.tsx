@@ -2,7 +2,7 @@ import './blogs.scss'
 import * as React from 'react'
 import { ConnectedMasterWrapper, MasterHeader, MasterFooter } from '../../layout'
 import { FullScreenCarousel, Content, Fade, Layout, ImgWrapper, Img } from 'scripts/_common/ui-kit'
-import { AppNavLink } from 'scripts/_core/localization'
+import { AppNavLink } from 'scripts/_core'
 
 const scrollToElement = require('scroll-to-element')
 
@@ -58,9 +58,10 @@ export class Page extends React.Component {
                                                     <Img baseOn="height" src={blogBg02} />
                                                 </ImgWrapper>
                                             </div>
-                                            <AppNavLink to="/blogs" className="smooth">
-                                                <h1>This is some neat blog post</h1>
-                                                <p>We love design, so much we breathe it. We make things for the better. We're specialized in both visual design and webdevelopment.</p>
+                                            <AppNavLink to="/blogs/blog-detail" className="smooth">
+                                                <h1 className="mb-0">This is some neat blog post</h1>
+                                                <small>Passion, Design, webdevelopment</small>
+                                                <p className="pt-2">We love design, so much we breathe it. We make things for the better. We're specialized in both visual design and webdevelopment.</p>
                                             </AppNavLink>
                                         </li>
                                     )

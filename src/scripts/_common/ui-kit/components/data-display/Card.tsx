@@ -1,10 +1,10 @@
 import './Card.scss'
 
 import * as React from 'react'
-import { ImageProps, Img } from '../generic'
+import { Img } from '../generic'
 
 interface CardProps {
-    image?: ImageProps
+    image?: JSX.Element
     title?: JSX.Element
     extra?: JSX.Element
     metaTags?: JSX.Element
@@ -16,7 +16,7 @@ export function Card(props: CardProps) {
         <div className="card">
             <div className="card-content">
                 <div className="card-image">
-                    <Img {...props.image} />
+                    {props.image}
                 </div>
                 <div className="card-info">
                     {props.title}
@@ -36,6 +36,7 @@ export function Card(props: CardProps) {
 }
 
 Card['defaultProps'] = {
+    image: <Img />,
     title: <label>Card title</label>,
     extra: <span>More text</span>,
     metaTags: <span>tag, car, footer</span>,
