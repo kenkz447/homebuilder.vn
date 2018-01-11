@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Viewer, ImageWithSrcProps, SlickSlider, ImgWrapper, Img, Col, Row } from 'scripts/_common/ui-kit'
 
 import { autobind } from 'core-decorators'
-import * as classNames from 'classnames';
+import * as classNames from 'classnames'
 
 const sampleLayout = require('images/sample-layout.jpg')
 const samplePerspective = require('images/sample-room-image.jpg')
