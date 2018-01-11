@@ -4,7 +4,7 @@ import { MasterHeader } from '../../layout'
 import { Row, Col, Fade, Layout, Content, Icon } from 'scripts/_common/ui-kit'
 import { ContactUsPageForm } from '../../containers'
 import { ContactMap } from './containers'
-import { autobind } from 'core-decorators';
+import { autobind } from 'core-decorators'
 
 export class Page extends React.Component {
     render() {
@@ -17,37 +17,39 @@ export class Page extends React.Component {
                         <Layout className="position-relative">
                             <Content id="contactWrapper" className="contact-wrapper">
                                 {this.renderScrollhelper()}
-                                <div className="contact" ref={(element) => this.contactContent = element}>
-                                    <Row gutter={30}>
+                                <div className="contact pt-5 pl-md-5 pr-md-5" ref={(element) => this.contactContent = element}>
+                                    <Row gutter={10}>
                                         <Col span={24} lg={{ span: 12 }}>
-                                            <h3>Ways to contact us</h3>
-                                            <small className="sub-heading">Forgive us if we don’t pick up. We are often heads down jamming on something that we can’t wait to share. We'll talk real soon. In the meantime, peep our social wall to see what we're up to.</small>
-                                            <h3 className="pt-5 mb-4">Contact info</h3>
-                                            <Row gutter={15}>
-                                                <Col span={12}>
-                                                    <div className="input-wrapper">
-                                                        <label>Local Address:</label><p className="input-data">House no 33</p>
-                                                    </div>
-                                                </Col>
-                                                <Col span={12}>
-                                                    <div className="input-wrapper">
-                                                        <label>City:</label>
-                                                        <p className="input-data">Ho Chi Minh</p>
-                                                    </div>
-                                                </Col>
-                                                <Col span={12}>
-                                                    <div className="input-wrapper">
-                                                        <label>Emal:</label><p className="input-data">homebuilder@</p>
-                                                    </div>
-                                                </Col>
-                                                <Col span={12}>
-                                                    <div className="input-wrapper">
-                                                        <label>Phone no:</label>
-                                                        <p className="input-data">000 000 0000</p>
+                                            <div className="mb-4">
+                                                <h3>Ways to contact us</h3>
+                                                <small className="sub-heading">Forgive us if we don’t pick up. We are often heads down jamming on something that we can’t wait to share. We'll talk real soon. In the meantime, peep our social wall to see what we're up to.</small>
+                                                <h3 className="pt-5 mb-4">Contact info</h3>
+                                                <Row gutter={15}>
+                                                    <Col span={12}>
+                                                        <div className="input-wrapper">
+                                                            <label>Local Address:</label><p className="input-data">House no 33</p>
+                                                        </div>
+                                                    </Col>
+                                                    <Col span={12}>
+                                                        <div className="input-wrapper">
+                                                            <label>City:</label>
+                                                            <p className="input-data">Ho Chi Minh</p>
+                                                        </div>
+                                                    </Col>
+                                                    <Col span={12}>
+                                                        <div className="input-wrapper">
+                                                            <label>Emal:</label><p className="input-data">homebuilder@</p>
+                                                        </div>
+                                                    </Col>
+                                                    <Col span={12}>
+                                                        <div className="input-wrapper">
+                                                            <label>Phone no:</label>
+                                                            <p className="input-data">000 000 0000</p>
 
-                                                    </div>
-                                                </Col>
-                                            </Row>
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+                                            </div>
                                         </Col>
                                         <Col span={24} lg={{ span: 12 }}>
                                             <h3>Send Message</h3>

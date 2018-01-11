@@ -17,7 +17,7 @@ Input['defaultProps'] = {
 export function VerticalInputWrapper(props) {
     return (
         <div className="input-wrapper vertical">
-            <label htmlFor={props.name}>{props.label}:</label>
+            <label className="input-label" htmlFor={props.name}>{props.label}:</label>
             {props.children}
         </div>
     )

@@ -3,7 +3,6 @@ const K_SCALE_MEDIUM = 0.45
 const K_BEFORE_AFTER_SCALES = [{ l: 15, scale: K_SCALE_SMALL }, { l: 10, scale: K_SCALE_MEDIUM }]
 const K_SCALES_SUM = K_BEFORE_AFTER_SCALES.reduce((sum, el) => el.l + sum, 0)
 
-
 export function getScale(rowIndex, rowFrom, rowTo, K_SCALE_NORMAL) {
     if (rowIndex >= rowFrom && rowIndex <= rowTo)
         return K_SCALE_NORMAL

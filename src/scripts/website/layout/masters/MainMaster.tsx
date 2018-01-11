@@ -11,7 +11,7 @@ export class MainMaster extends React.Component {
             <ConnectedMasterWrapper className="app">
                 <MasterHeader />
                 <Content className="main">
-                    <ContentTransition>
+                    <ContentTransition className="pt-5">
                         {this.props.children}
                     </ContentTransition>
                 </Content>

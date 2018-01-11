@@ -4,6 +4,8 @@ import { MainMaster } from '../../layout'
 import { Row, Col, Card, ImgWrapper, Img } from 'scripts/_common/ui-kit'
 import { AppNavLink } from 'scripts/_core'
 
+const sampleProject = require('images/sample-project.jpg')
+
 export class Page extends React.Component {
     render() {
         return (
@@ -16,11 +18,11 @@ export class Page extends React.Component {
                     <div className="">
                         <Row gutter={40} type="flex">
                             {
-                                [0, 1, 2, 3, 4, 5].map(o => (
+                                [0, 1, 2, 3, 4, 5].map(o => ( 
                                     <Col span={24} md={{ span: 12 }} xl={{ span: 8 }}>
                                         <AppNavLink to="/sample-project">
                                             <Card
-                                                image={<ImgWrapper ratioX={1} ratioY={1}><Img /></ImgWrapper>}    
+                                                image={<ImgWrapper ratioX={1} ratioY={1}><Img src={sampleProject} /></ImgWrapper>}
                                                 title={<label>Gold view</label>}
                                                 extra={<span className="font-family-roboto-mono">50.000.000 - 200.000.000 VNĐ</span>}
                                                 metaTags={<small>Apartment</small>}

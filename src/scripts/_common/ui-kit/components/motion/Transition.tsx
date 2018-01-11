@@ -9,7 +9,8 @@ export function Fade(props) {
         return null
     return (
         <TransitionGroup className={props.className}>
-            <CSSTransition {...props}  classNames="fade" appear enter exit timeout={{ enter: 700, exit: 700 }}>
+            <CSSTransition classNames="fade" appear enter exit timeout={{ enter: 700, exit: 700 }}>
+                { props.children }
             </CSSTransition>
         </TransitionGroup> 
     )
@@ -18,7 +19,9 @@ export function Fade(props) {
 export function SlideUp(props) {
     return (
         <TransitionGroup className={props.className}>
-            <CSSTransition {...props} classNames="slideup" appear enter exit timeout={{ appear: 400, enter: 400, exit: 1000 }} />
+            <CSSTransition classNames="slideup" appear enter exit timeout={{ enter: 400, exit: 1000 }}>
+                { props.children }
+            </CSSTransition>
         </TransitionGroup>
     )
 }
@@ -26,7 +29,9 @@ export function SlideUp(props) {
 export function ContentTransition(props) {
     return (
         <TransitionGroup className={props.className}>
-            <CSSTransition {...props} classNames="content" appear enter exit timeout={{ enter: 400, exit: 0 }} />
+            <CSSTransition classNames="content" appear enter exit timeout={{ enter: 400, exit: 0 }}>
+                {props.children}
+            </CSSTransition>
         </TransitionGroup>
     )
 }

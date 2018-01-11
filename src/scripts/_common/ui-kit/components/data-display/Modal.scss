@@ -16,7 +16,10 @@
     transition: transform .8s cubic-bezier(.82, 0, .12, 1), opacity .6s cubic-bezier(.82, 0, .12, 1);
     &.small {
         max-width: 600px;
-        height: 65vh;
+        height: 75vh;
+        @media screen and (min-width: 768px) {
+            height: 65vh;
+        }
     }
     &-overlay {
         position: fixed;
@@ -54,6 +57,7 @@
         z-index: 999;
     }
     &-title {
+        background: #fff;
         flex: 1;
         font-size: 1.3rem;
         padding-bottom: .5rem;
