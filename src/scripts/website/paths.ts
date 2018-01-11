@@ -41,3 +41,9 @@ export const ProductDetailPath: ViewRoute = {
     allowAnonymous: true,
     exact: true
 }
+
+export const ContactPath: ViewRoute = {
+    path: `/contact`,
+    allowAnonymous: true,
+    exact: true
+}

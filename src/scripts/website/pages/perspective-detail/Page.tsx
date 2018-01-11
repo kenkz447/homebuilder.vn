@@ -4,7 +4,8 @@ import { Row, Col, Img, Icon, ImgWrapper } from 'scripts/_common/ui-kit'
 import { MainMaster } from '../../layout'
 import { AppNavLink } from 'scripts/_core'
 import { LayoutDetailPath } from '../../paths'
-import { LayoutAndImages, ContactUsButton } from './containers'
+import { LayoutAndImages } from './containers'
+import { ContactUsButton } from '../../containers'
 
 const packageCarpentry = require('images/package-carpentry.png')
 const livingRoom = require('images/living-room.png')

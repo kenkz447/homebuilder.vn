@@ -10,22 +10,22 @@ function ContactUsForm(props) {
             <Row gutter={15}>
                 <Col span={24} md={{ span: 12 }}>
                     <VerticalInputWrapper label="Name">
-                        <Input placeholder="enter your name"/>
+                        <Input placeholder="About you"/>
                     </VerticalInputWrapper>
                 </Col>
                 <Col span={24} md={{ span: 12 }}>
                     <VerticalInputWrapper label="Your email">
-                        <Input placeholder="enter your email"/>
+                        <Input placeholder="Email or phone"/>
                     </VerticalInputWrapper>
                 </Col>
                 <Col span={24} md={{ span: 24 }}>
                     <VerticalInputWrapper label="Subject">
-                        <Input placeholder="enter subject"/>
+                        <Input placeholder="What are you asking for?"/>
                     </VerticalInputWrapper>
                 </Col>
                 <Col span={24} md={{ span: 24 }}>
                     <VerticalInputWrapper label="Message">
-                        <Input component="textarea" placeholder="enter message" rows={8}/>
+                        <Input component="textarea" placeholder="Enter message" rows={7}/>
                     </VerticalInputWrapper>
                 </Col>
             </Row>

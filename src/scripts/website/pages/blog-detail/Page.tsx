@@ -2,7 +2,7 @@ import './blog-detail.scss'
 import * as React from 'react'
 import { ConnectedMasterWrapper, MasterHeader, MasterFooter } from '../../layout'
 import { Content, Fade, Layout, Row, Col, Icon } from 'scripts/_common/ui-kit'
-import { AppNavLink } from 'scripts/_core';
+import { AppNavLink } from 'scripts/_core'
 
 const blogBg02 = require('images/blog-background-2.jpg')
 

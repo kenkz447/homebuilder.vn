@@ -1,17 +1,13 @@
 .app {
     height: 100%;
-    padding-top: 72px;
     min-height: 100vh;
     transition: transform .8s cubic-bezier(.82, 0, .12, 1), opacity .6s cubic-bezier(.82, 0, .12, 1);
     @media screen and (min-width: 768px) {
-        padding-top: 0;
         max-width: 1200px;
         margin: 0 auto;
         padding: {
-            top: 70px;
             left: 30px;
             right: 30px;
-            top: 30px;
         }
     }
     &-container {
@@ -52,12 +48,9 @@
         box-shadow: unset;
         position: relative;
         margin: 0 0 50px;
-        display: -webkit-box;
-        display: -ms-flexbox;
+        padding-top: 30px;
         display: flex;
         -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
         flex-direction: row;
     }
 }

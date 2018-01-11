@@ -1,0 +1,87 @@
+.contact {
+    background: #fff;
+    z-index: 1;
+    padding: 30px;
+    &-padtop {
+        padding-top: 70vh;
+    }
+    &-wrapper {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        max-width: 1200px;
+        overflow: auto;
+        top: 0;
+        &::-webkit-scrollbar {
+            width: 0px;
+            /* remove scrollbar space */
+            background: transparent;
+            /* optional: just make scrollbar invisible */
+        }
+        /* optional: show position indicator in red */
+        &::-webkit-scrollbar-thumb {
+            background: #FF0000;
+        }
+    }
+    &-header {
+        height: 100vh;
+        &-wrapper {
+            height: 100vh
+        }
+    }
+    &-scroll-helper {
+        position: absolute;
+        height: 75px;
+        width: 75px;
+        border-radius: 50%;
+        background-color: #fff;
+        top: calc(70vh - 30px);
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        z-index: 1;
+        cursor: pointer;
+        i {
+            font-size: 1.5rem;
+            animation: sdb-r 2s infinite;
+        }
+        @keyframes sdb-r {
+            0% {
+                transform: translate(0, 10px);
+                opacity: 0;
+            }
+            40% {
+                opacity: 1;
+            }
+            80% {
+                transform: translate(0, 0px);
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    }
+    &-form {
+        label {
+            display: none;
+        }
+        input {
+            margin-bottom: 0;
+        }
+        .input-wrapper {
+            margin-bottom: 10px;
+        }
+    }
+    .input-data {
+        padding: .5rem 1rem;
+        color: rgba(34, 34, 34, .55);
+        margin: 1rem 0;
+        font-size: .9rem;
+        font-weight: 400;
+        border-bottom: 2px solid transparent;
+        background: #FCFCFC;
+    }
+}

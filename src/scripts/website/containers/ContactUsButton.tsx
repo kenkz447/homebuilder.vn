@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Modal } from 'scripts/_common/ui-kit'
 import { autobind } from 'core-decorators'
-import { ContactUsFormWrapper } from './ContactUsForm'
+import { ContactUsFormWrapper } from './presentations'
 export class ContactUsButton extends React.Component {
     modal: Modal
     render() {
