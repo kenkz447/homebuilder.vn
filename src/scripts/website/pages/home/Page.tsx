@@ -2,11 +2,22 @@ import './home.scss'
 import * as React from 'react'
 import { MainMaster } from '../../layout'
 import { Row, Col, Card, ImgWrapper, Img } from 'scripts/_common/ui-kit'
-import { AppNavLink } from 'scripts/_core'
+import { AppNavLink, DbStateSet, formatCurrency } from 'scripts/_core'
+import { withDbStateSet } from 'scripts/_core/db-state/dbStateSet'
+import { ProjectModel, Project, HOST_ORIGIN } from 'scripts/_dbState'
 
-const sampleProject = require('images/sample-project.jpg')
+interface HomeProps {
+    projects: DbStateSet<Project>
+}
 
-export class Page extends React.Component {
+@withDbStateSet({
+    modelName: ProjectModel.modelName,
+    toProp: nameof<HomeProps>(o => o.projects),
+    searchValues: () => ({
+
+    })
+})
+export class Page extends React.Component<HomeProps> {
     render() {
         return (
             <MainMaster>
@@ -18,16 +29,9 @@ export class Page extends React.Component {
                     <div className="">
                         <Row gutter={40} type="flex">
                             {
-                                [0, 1, 2, 3, 4, 5].map(o => ( 
-                                    <Col span={24} md={{ span: 12 }} xl={{ span: 8 }}>
-                                        <AppNavLink to="/sample-project">
-                                            <Card
-                                                image={<ImgWrapper ratioX={1} ratioY={1}><Img src={sampleProject} /></ImgWrapper>}
-                                                title={<label>Gold view</label>}
-                                                extra={<span className="font-family-roboto-mono">50.000.000 - 200.000.000 VNĐ</span>}
-                                                metaTags={<small>Apartment</small>}
-                                            />
-                                        </AppNavLink>
+                                this.props.projects.value.map(project => (
+                                    <Col key={project.id} span={24} md={{ span: 12 }} xl={{ span: 8 }}>
+                                        {this.renderProjectItem(project)}
                                     </Col>
                                 ))
                             }
@@ -35,6 +39,19 @@ export class Page extends React.Component {
                     </div>
                 </div>
             </MainMaster>
+        )
+    }
+
+    renderProjectItem(project: Project) {
+        return (
+            <AppNavLink to={project.name}>
+                <Card
+                    image={<ImgWrapper ratioX={1} ratioY={1}><Img srcPrefix={HOST_ORIGIN} src={project.avatar.src} /></ImgWrapper>}
+                    title={<label>{project.title}</label>}
+                    extra={<span className="font-family-roboto-mono">{formatCurrency(project.budgetMin)} - {formatCurrency(project.budgetMax)} VNĐ</span>}
+                    metaTags={<small>{project.projectType.label}</small>}
+                />
+            </AppNavLink>
         )
     }
 }

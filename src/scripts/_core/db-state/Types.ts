@@ -6,7 +6,7 @@ export interface BaseDbStateEntry {
 }
 interface ApiActions { [action: string]: (value) => ApiInfo }
 
-export interface APISet<T extends BaseDbStateEntry> extends ApiActions {
+export interface APISet<T extends BaseDbStateEntry = {}> extends ApiActions {
     search?(value): ApiInfo
     get?(value: T): ApiInfo
     create?(value: T): ApiInfo
@@ -32,8 +32,8 @@ export interface DbStateEntryOptions {
     modelName: string
     toProp?: string
     getId?(ownProps: {}): number | number
+    identyKey?: string
     withRouter?: boolean
-    filter?: (ownProps) => {}
 }
 
 export interface DbStateSetProps {
@@ -51,7 +51,7 @@ export interface DbStateSetOptions {
     modelName: string
     toProp?: string
     includes?: Array<string>
-    filter?: (ownProps) => {}
+    searchValues?: (ownProps) => {}
     withRouter?: boolean
     appendNext?: true
 }
@@ -61,4 +61,21 @@ export interface CallActionParams {
     value?: any
     meta?: any
     callbacks?: ApiCallbacks
+}
+
+export interface Meta {
+    pagination?: Pagination
+    action?: string
+    resultOnly?: boolean
+}
+
+export interface Pagination {
+    first: boolean
+    last: boolean
+    currentPage: number
+    currentItemCount?: number
+    pageSize: number
+    sort: string
+    totalItems: number
+    totalPages: number
 }

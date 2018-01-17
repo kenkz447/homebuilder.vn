@@ -91,7 +91,7 @@ declare module 'redux-orm' {
         static hasId(id: number): boolean
         static _findDatabaseRows(lookupObj: object): any // TODO
         static get<Fields, Additional = {}, VirtualFields = {}>(lookupObj: Object): IModel<Fields, Additional, VirtualFields>
-        static reducer<State extends IORMCommonState>(state: any, action: any, session: ISession): any
+        static reducer<State extends IORMCommonState>(action: any, session: ISession): any
 
         readonly ref: Fields & Additional & IORMId
 

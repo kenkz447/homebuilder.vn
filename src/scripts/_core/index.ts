@@ -4,7 +4,7 @@ export * from './containers'
 
 export {
     FETCH_START, FETCH_SUCCESS, FETCH_ERROR, FETCH_COMPLETE,
-    FetchStartAction, FetchCompleteAction,
+    FetchStartAction, FetchCompleteAction, FetchSuccessAction,
     FetchErrorAction, FetchStart, FetchCacheDelete, fetchUti,
     ApiInfo, FetchResult
 } from './fetch'
@@ -25,5 +25,6 @@ export { GetTempValue, SetTempValue } from './tempValue'
 
 export {
     withDbStateEntry, withDbStateSet, getSession,
-    DbStateEntry, DbStateSet, APISet, getORM, BaseDbStateEntry
+    DbStateEntry, DbStateSet, APISet, getORM, BaseDbStateEntry,
+    DbStateModel
 } from './db-state'

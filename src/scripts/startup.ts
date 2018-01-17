@@ -12,6 +12,7 @@ import { Service as SrollToTop } from './_services/scroll-to-top'
 import './_services/unhandled-error-catcher'
 
 import { Module as Website } from './website'
+import { models } from './_dbState'
 
 const supportedLanguages = [
     { code: 'vi', title: 'vietnamese', isPrimary: true },
@@ -32,6 +33,8 @@ function startup() {
         defaultReturnUrl: '/settings/spa',
         supportLanguages: supportedLanguages
     })
+    
+    configuration.registerDbStateModels(models)
 
     // Add modules
     configuration.useModule(Website)
@@ -42,7 +45,7 @@ function startup() {
     configuration.addService(AntdFetchCatcherService)
     configuration.addService(LoadingBarServices)
     configuration.addService(SrollToTop)
-  
+
     // Start app when your configuration done
     configuration.appInit()
 }

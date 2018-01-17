@@ -7,6 +7,7 @@ export interface ImageWithSrcProps extends React.ImgHTMLAttributes<any> {
 
 export interface ImageProps extends React.ImgHTMLAttributes<any> {
     baseOn?: 'width' | 'height' | 'none'
+    srcPrefix?: string
 }
 
 const emptyImage = require('images/image-empty.png')
@@ -32,6 +33,11 @@ class Img extends React.Component<ImageProps> {
             { 'w-100': this.props.baseOn === 'width' },
             { 'h-100': this.props.baseOn === 'height' }
         )
+        
+        if (imgProps.srcPrefix) {
+            imgProps.src = `${imgProps.srcPrefix}${imgProps.src}`
+            delete imgProps.srcPrefix 
+        }
 
         return (
             <img {...imgProps} />

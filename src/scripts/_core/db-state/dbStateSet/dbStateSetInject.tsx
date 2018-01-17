@@ -6,9 +6,9 @@ import { getORM } from '../orm'
 import { DbStateSet } from './DbStateSet'
 
 export function dbStateSetInject(entryOptions: DbStateSetOptions, Component) {
-    let dbStateSet: DbStateSet<any>
 
     return class extends React.Component<any> {
+        dbStateSet: DbStateSet<any>
         componentWillMount() {
             this.updateDbStateSet(this.props)
         }
@@ -19,11 +19,11 @@ export function dbStateSetInject(entryOptions: DbStateSetOptions, Component) {
 
         componentWillUnmount() {
             // TODO: Release histories raise by the set
-            dbStateSet = undefined
+            this.dbStateSet = undefined
         }
 
         render() {
-            return <Component { ...this.props} {...{ [entryOptions.toProp]: dbStateSet }} />
+            return <Component { ...this.props} {...{ [entryOptions.toProp]: this.dbStateSet }} />
         }
 
         updateDbStateSet(props) {
@@ -33,22 +33,22 @@ export function dbStateSetInject(entryOptions: DbStateSetOptions, Component) {
                 const models = orm.getModelClasses()
                 const model = models.find(o => o.modelName == entryOptions.modelName)
 
-                const nextFilterResult = entryOptions.filter && entryOptions.filter(props)
+                const nextFilterResult = entryOptions.searchValues && entryOptions.searchValues(props)
 
-                if (dbStateSet) {
-                    if (JSON.stringify(dbStateSet.searchTerms) !== JSON.stringify(nextFilterResult))
-                        dbStateSet = undefined
+                if (this.dbStateSet) {
+                    if (JSON.stringify(this.dbStateSet.searchTerms) !== JSON.stringify(nextFilterResult))
+                        this.dbStateSet = undefined
                 }
 
-                if (!dbStateSet)
-                    dbStateSet = new DbStateSet({
+                if (!this.dbStateSet)
+                    this.dbStateSet = new DbStateSet({
                         model,
                         filter: nextFilterResult,
                         table: props[entryOptions.toProp],
                         appendNext: entryOptions.appendNext
                     })
                 else
-                    dbStateSet.table = props[entryOptions.toProp]
+                    this.dbStateSet.table = props[entryOptions.toProp]
             }
         }
     }

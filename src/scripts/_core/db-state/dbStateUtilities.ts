@@ -76,7 +76,7 @@ function defaultUpdater(dbState, action) {
         if (!model.reducer)
             continue
 
-        model.reducer(dbState, action, session)
+        model.reducer(action, session)
     }
 
     return sessionEnd()

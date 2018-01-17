@@ -1,13 +1,14 @@
 import { Model, attr } from 'redux-orm'
 import { FETCH_SUCCESS, FETCH_START } from '../fetch'
 import { getSession } from './orm'
+import { Meta } from './Types'
 
 const filter = require('lodash/filter')
 
 export interface DbStateHistory {
     spec?: Array<number | string>
     status?: 'start' | 'success' | 'error'
-    meta?: any
+    meta?: Meta
 }
 
 export function getDbStateHistories({ setId, modelName }) {
@@ -36,7 +37,7 @@ export function createDbStateHistoryModel({modelName}) {
             [nameof<DbStateHistory>(o => o.meta)]: attr(),
         }
     
-        static reducer(dbState, action, session) {
+        static reducer(action, session) {
             if (action.type == FETCH_START) {
                 if (!action.payload.meta || !action.payload.meta.history)
                     return
@@ -59,7 +60,7 @@ export function createDbStateHistoryModel({modelName}) {
                     meta: action.payload.request.meta,
                     status: 'success'
                 }
-    
+                
                 // if no-content
                 if (!responseValue)
                     newHistoryLine.spec = [action.payload.request.meta.id]
@@ -72,7 +73,7 @@ export function createDbStateHistoryModel({modelName}) {
                         first: action.payload.value.first,
                         last: action.payload.value.last,
                         currentPage: action.payload.value.number,
-                        numberOfElements: action.payload.value.numberOfElements,
+                        currentItemCount: action.payload.value.numberOfElements,
                         pageSize: action.payload.value.size,
                         sort: action.payload.value.sort,
                         totalItems: action.payload.value.totalElements,

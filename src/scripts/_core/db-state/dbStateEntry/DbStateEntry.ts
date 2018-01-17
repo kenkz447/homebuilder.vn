@@ -65,7 +65,7 @@ export class DbStateEntry<T extends BaseDbStateEntry> {
             this.value = props.value
 
         if (props.value === null)
-            props.id ? this.callAction({ actionName: nameof<APISet<T>>(o => o.get), value: { id: props.id } }) :
+            props[props.identyKey] ? this.callAction({ actionName: nameof<APISet<T>>(o => o.get), value: { [props.identyKey]: props[props.identyKey] } }) :
                 this.callAction({ actionName: nameof<APISet<T>>(o => o.search), value: props.value || {} })
     }
 
