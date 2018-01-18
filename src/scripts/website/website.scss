@@ -1,12 +1,14 @@
 html {
     font-size: 14px;
-    overflow-y: visible;
+}
+
+body {
+    overflow-y: scroll;
 }
 
 html,
 body {
     height: unset;
-    overflow-y: visible;
 }
 
 *,

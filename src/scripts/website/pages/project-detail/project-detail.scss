@@ -45,10 +45,8 @@
         overflow: hidden;
         position: relative;
         &-label {
-            position: absolute;
+            padding-top: 5px;
             width: 100%;
-            bottom: 0;
-            left: 0;
             color: gray;
             text-align: center;
         }

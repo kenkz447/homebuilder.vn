@@ -6,15 +6,13 @@ import { AppNavLink, formatCurrency, DbStateEntry } from 'scripts/_core'
 import { LayoutDetailPath } from '../../paths'
 import { LocationAndSitemap } from './containers'
 import { withDbStateEntry } from 'scripts/_core/db-state'
-import { ProjectModel, HOST_ORIGIN, Project } from 'scripts/_dbState'
+import { ProjectModel, HOST_ORIGIN, Project, RoomLayout } from 'scripts/_dbState'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { RoomType } from 'scripts/_dbState/room-type'
 
 interface PageProps extends RouteComponentProps<{ project: any }> {
     project: DbStateEntry<Project>
 }
-
-const sampleLayout = require('images/sample-layout.jpg')
 
 @withDbStateEntry({
     modelName: ProjectModel.modelName,
@@ -84,7 +82,7 @@ export class Page extends React.Component<PageProps> {
                             </ul>
                         </Col>
                         <Col span={24}>
-                            <QueueAnim delay={500} component={Row} componentProps={{ gutter: 20 }}>
+                            <QueueAnim key={this.state.selectedRoomType.id} delay={500} component={Row} componentProps={{ gutter: 20 }}>
                                 {
                                     this.state.selectedRoomType && this.state.selectedRoomType.children.map(roomLayout => (
                                         <Col key={roomLayout.id} span={24} md={{ span: 12 }} lg={{ span: 8 }} xl={{ span: 6 }}>
@@ -100,14 +98,14 @@ export class Page extends React.Component<PageProps> {
         )
     }
 
-    renderLayouts(layout) {
+    renderLayouts(layout: RoomLayout) {
         return (
-            <AppNavLink to={LayoutDetailPath.path.replace(':layout', String(layout))}>
+            <AppNavLink to={LayoutDetailPath.path.replace(':layout', `${layout.label}-${layout.id}`)}>
                 <div className="room-type-item mb-4">
                     <ImgWrapper hoverEffect="scale-up" ratioX={4} ratioY={3}>
-                        <Img src={sampleLayout} />
+                        <Img srcPrefix={HOST_ORIGIN} src={layout.layoutImage.src} />
                     </ImgWrapper>
-                    <label className="room-type-item-label">109-S.04</label>
+                    <label className="room-type-item-label">{layout.label}</label>
                 </div>
             </AppNavLink>
         )

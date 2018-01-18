@@ -1,2 +1,3 @@
-export const HOST_ORIGIN = 'http://localhost:31414'
-export const API_PREFIX = `${HOST_ORIGIN}/api/public/`
+export const HOST_ORIGIN = 'http://test.homebuilder.vn'
+
+export const API_PREFIX = `http://localhost:31414/api/public`

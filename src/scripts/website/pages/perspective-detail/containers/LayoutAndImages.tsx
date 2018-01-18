@@ -1,38 +1,33 @@
 import * as React from 'react'
-import { Viewer, ImageWithSrcProps, SlickSlider, ImgWrapper, Img, Col, Row } from 'scripts/_common/ui-kit'
+import { Viewer, SlickSlider, ImgWrapper, Img, Col, Row } from 'scripts/_common/ui-kit'
 
 import { autobind } from 'core-decorators'
 import * as classNames from 'classnames'
-
-const sampleLayout = require('images/sample-layout.jpg')
-const samplePerspective = require('images/sample-room-image.jpg')
+import { LayoutPoint, HOST_ORIGIN, FileInfo } from 'scripts/_dbState'
 
 interface LayoutAndImagesProps {
-    pictures?: Array<ImageWithSrcProps>
+    layoutImage?: FileInfo
+    layoutPoints?: Array<LayoutPoint>
 }
 
 export class LayoutAndImages extends React.Component<LayoutAndImagesProps> {
     static defaultProps: LayoutAndImagesProps = {
-        pictures: [
-            { src: samplePerspective },
-            { src: samplePerspective },
-            { src: samplePerspective },
-            { src: samplePerspective },
-            { src: samplePerspective },
-            { src: samplePerspective },
-            { src: samplePerspective }
-        ]
+        layoutPoints: []
     }
 
     viewer: Viewer
 
     render() {
+        const pictures = this.props.layoutPoints.map(o => ({
+            src: `${HOST_ORIGIN}/${o.image.src}`
+        }))
+
         return (
             <>
             <Row className="mb-4">
                 <Col span={24} className="mb-2">
                     <ImgWrapper ratioX={4} ratioY={3} >
-                        <Img src={sampleLayout} />
+                        <Img srcPrefix={HOST_ORIGIN} src={this.props.layoutImage.src} />
                         {this.renderArrows()}
                     </ImgWrapper>
                 </Col>
@@ -42,38 +37,15 @@ export class LayoutAndImages extends React.Component<LayoutAndImagesProps> {
             </Row>
             <Viewer
                 ref={(element) => this.viewer = element}
-                images={this.props.pictures} />
+                images={pictures} />
             </>
         )
     }
     renderArrows() {
-        const layoutPoints = [{
-            y: 60.8681,
-            x: 30,
-            rotate: 80,
-            image: {
-                src: samplePerspective
-            }
-        }, {
-            y: 40.7552,
-            x: 75.8681,
-            rotate: 230,
-            image: {
-                src: samplePerspective
-            }
-        }, {
-            y: 60.7552,
-            x: 60.8681,
-            rotate: 316,
-            image: {
-                src: samplePerspective
-            }
-        }]
-
         return (
             <div className="layout-arrow-list">
                 {
-                    layoutPoints.map((o, i) => {
+                    this.props.layoutPoints.map((o, i) => {
                         return (
                             <div key={i} className={'layout-arrow-wrapper hint--html hint--bottom'}
                                 style={{
@@ -88,7 +60,7 @@ export class LayoutAndImages extends React.Component<LayoutAndImagesProps> {
                                 />
                                 <div className="layout-arrow-image hint__content d-none d-xl-block">
                                     <ImgWrapper ratioX={4} ratioY={3}>
-                                        <Img src={o.image.src} />
+                                        <Img srcPrefix={HOST_ORIGIN} src={o.image.src} />
                                     </ImgWrapper>
                                 </div>
                             </div>
@@ -99,8 +71,10 @@ export class LayoutAndImages extends React.Component<LayoutAndImagesProps> {
         )
     }
     renderImages() {
+        const pictures = this.props.layoutPoints.map(o => o.image)
+
         return (
-            <SlickSlider pictures={this.props.pictures}
+            <SlickSlider pictures={pictures}
                 slidesToShow={5}
                 responsive={[{
                     breakpoint: 767,
@@ -122,7 +96,7 @@ export class LayoutAndImages extends React.Component<LayoutAndImagesProps> {
                     return (
                         <div key={index}>
                             <ImgWrapper className="clickable" ratioX={4} ratioY={3} onClick={() => { this.onImageClick(index) }}>
-                                <Img src={item.src} />
+                                <Img srcPrefix={HOST_ORIGIN} src={item.src} />
                             </ImgWrapper>
                         </div>
                     )

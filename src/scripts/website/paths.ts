@@ -37,7 +37,7 @@ export const PrepectiveDetailPath: ViewRoute = {
 }
 
 export const ProductDetailPath: ViewRoute = {
-    path: `${PrepectiveDetailPath.path}/:product`,
+    path: `/perspective/:package/:product`,
     allowAnonymous: true,
     exact: true
 }

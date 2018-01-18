@@ -31,7 +31,7 @@ export interface Entry<T> {
 export interface DbStateEntryOptions {
     modelName: string
     toProp?: string
-    getId?(ownProps: {}): number | number
+    getId?(ownProps: {}): any
     identyKey?: string
     withRouter?: boolean
 }

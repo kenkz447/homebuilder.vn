@@ -131,7 +131,7 @@ export class DbStateSet<T extends BaseDbStateEntry> {
                         lastAction.meta.action === 'create' || lastAction.meta.action === 'update' || lastAction.meta.action === 'delete')
                         allItems = allItems.filter((o, i) => i < this.pageSize)
 
-                    if (this.searchTerms)
+                    else if (this.searchTerms)
                         for (const key in this.searchTerms) {
                             if (!this.searchTerms[key])
                                 continue

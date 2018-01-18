@@ -7,9 +7,9 @@ export class DbStateModel<T> extends Model<T> {
     static apiSet: APISet
 
     static reducer({ type, payload }: FetchSuccessAction) {
-        if (type !== FETCH_SUCCESS)
+        if (type !== FETCH_SUCCESS || payload.request.meta.modelName !== this.modelName)
             return
-
+        
         let single, multi
         if (Array.isArray(payload.value.content))
             multi = payload.value.content
