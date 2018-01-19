@@ -2,7 +2,7 @@ import { BaseDbStateEntry, DbStateModel, APISet } from 'scripts/_core'
 import { FileInfo } from './file-info'
 import { Package } from './package'
 import { API_PREFIX } from './base'
-import { Project } from 'scripts/_dbState/project';
+import { Project } from 'scripts/_dbState/project'
 
 export interface LayoutPoint {
     image?: FileInfo

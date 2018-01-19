@@ -6,8 +6,8 @@ import { AppNavLink, withDbStateEntry } from 'scripts/_core'
 import { PrepectiveDetailPath } from '../../paths'
 import { PackageModel, Package, HOST_ORIGIN } from 'scripts/_dbState'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { DbStateEntry } from 'scripts/_core/db-state';
-import { autobind } from 'core-decorators';
+import { DbStateEntry } from 'scripts/_core/db-state'
+import { autobind } from 'core-decorators'
 
 interface PageProps extends RouteComponentProps<{ package: string, product: string }> {
     package: DbStateEntry<Package>
