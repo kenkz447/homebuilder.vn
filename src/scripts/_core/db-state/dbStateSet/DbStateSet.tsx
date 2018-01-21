@@ -6,7 +6,7 @@ import { DbStateEntry } from '../dbStateEntry'
 import { getDbStateHistories } from '../DbStateHistory'
 import { getORM } from '../orm'
 import { BaseDbStateEntry, DbStateSetProps, APISet, CallActionParams } from '../Types'
-import { theEntryId  } from '../dbStateUtilities'
+import { theEntryId } from '../dbStateUtilities'
 
 const uuidv4 = require('uuid/v4')
 
@@ -144,14 +144,14 @@ export class DbStateSet<T extends BaseDbStateEntry> {
                             })
                         }
                     this.loading = false
+                    this.entries = {}
+                    this.value = allItems
+                    this._table = table
                     break
                 case 'error':
                     this.loading = false
                     break
             }
-        this.entries = {}
-        this.value = allItems
-        this._table = table
     }
 
     private callAction(params: CallActionParams) {
@@ -222,7 +222,7 @@ export class DbStateSet<T extends BaseDbStateEntry> {
                             if (entry.status === 'MODIFIED') await entry.update()
                             else if (entry.status === 'NEW') await entry.create()
                             else if (entry.status === 'DELETE') await entry.delete()
-                            
+
                             entry.status = 'NO_ACTION'
                         })
                     )

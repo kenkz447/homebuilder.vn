@@ -41,9 +41,6 @@ class FullScreenCarousel extends React.Component<any, any> {
         this.prev = this.prev.bind(this)
         this.next = this.next.bind(this)
 
-        if (props.loop === false && props.auto) {
-            console.warn('[re-carousel] Auto-slide only works in loop mode.')
-        }
     }
 
     componentDidMount() {

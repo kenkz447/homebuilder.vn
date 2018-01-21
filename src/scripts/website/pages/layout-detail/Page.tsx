@@ -61,10 +61,10 @@ export class Page extends React.Component<PageProps> {
                                 </Col>
                                 {
                                     perspectives.map(perspective => (
-                                        <Col key={perspective.id} span={12} md={{ span: 8 }}>
+                                        <Col key={perspective.id} span={12} md={{ span: 12 }}>
                                             <AppNavLink to={PrepectiveDetailPath.path.replace(':perspective', perspective.package.name)}>
                                                 <div className="perspective-item mb-3">
-                                                    <ImgWrapper ratioX={1} ratioY={1}>
+                                                    <ImgWrapper ratioX={4} ratioY={3}>
                                                         <Img srcPrefix={HOST_ORIGIN} src={perspective.package.avatar.src} />
                                                     </ImgWrapper>
                                                     <label className="perspective-item-label">{perspective.label}</label>
