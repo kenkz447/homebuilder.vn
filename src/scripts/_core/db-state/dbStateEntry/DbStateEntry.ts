@@ -1,12 +1,14 @@
 import { ApiCallbacks, fetchUti, FetchStartPayload } from '../../fetch'
-import { APISet, EntryProps, BaseDbStateEntry, } from '../Types'
+import { APISet, EntryProps, BaseDbStateEntry, Meta, } from '../Types'
 import { autobind } from 'core-decorators'
 import { getORM } from '../orm'
+const uuidv4 = require('uuid/v4')
 
 export class DbStateEntry<T extends BaseDbStateEntry> {
     [key: string]: any
     status: 'NEW' | 'MODIFIED' | 'DELETE' | 'NO_ACTION' | 'ERROR_IN_ACTION'
     id
+    uuid = uuidv4()
 
     private _value: T
 
@@ -22,7 +24,7 @@ export class DbStateEntry<T extends BaseDbStateEntry> {
         this._value = value
     }
 
-    private model = undefined
+    model = undefined
 
     @autobind
     private callAction(params: { actionName: string, value?: any, callbacks?: ApiCallbacks }) {
@@ -35,16 +37,18 @@ export class DbStateEntry<T extends BaseDbStateEntry> {
         let apiPayload: FetchStartPayload = apiSet[params.actionName](params.value)
         if (!apiPayload)
             return
-        
-        if (!apiPayload.meta)
-            apiPayload.meta = {}
-        
-        apiPayload.meta.history = true
-        apiPayload.meta.action = params.actionName
-        apiPayload.meta.modelName = this.model.modelName
 
         if (!apiPayload.meta)
             apiPayload.meta = {}
+
+        const entryMeta: Meta = {
+            history: true,
+            action: params.actionName,
+            modelName: this.model.modelName,
+            uuid: this.uuid
+        }
+
+        apiPayload.meta = {...apiPayload.meta, ...entryMeta}
 
         if (params.callbacks)
             apiPayload = { ...apiPayload, ...params.callbacks }
@@ -64,9 +68,10 @@ export class DbStateEntry<T extends BaseDbStateEntry> {
         if (props.value)
             this.value = props.value
 
-        if (props.value === null)
-            props[props.identyKey] ? this.callAction({ actionName: nameof<APISet<T>>(o => o.get), value: { [props.identyKey]: props[props.identyKey] } }) :
-                this.callAction({ actionName: nameof<APISet<T>>(o => o.search), value: props.value || {} })
+        if (props.value === null) {
+            props[props.identyKey] ? this.callAction({ actionName: props.customAction || nameof<APISet<T>>(o => o.get), value: { [props.identyKey]: props[props.identyKey] } }) :
+                this.callAction({ actionName: props.customAction || nameof<APISet<T>>(o => o.search), value: props.value || {} })
+        }
     }
 
     @autobind

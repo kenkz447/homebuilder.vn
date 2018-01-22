@@ -5,9 +5,9 @@ import { getORM } from '../orm'
 
 import { DbStateEntryOptions } from '../Types'
 import { ITableState } from 'redux-orm'
+import { getDbStateHistories } from '../DbStateHistory'
 
-const filter = require('lodash/filter')
-
+import map = require('lodash/map')
 export function EntryInject(entryOptions: DbStateEntryOptions, ElementType) {
     return class extends React.Component<any> {
         entry: DbStateEntry<any>
@@ -41,10 +41,17 @@ export function EntryInject(entryOptions: DbStateEntryOptions, ElementType) {
                     table.items[table.items.indexOf(Math.max.apply(Math, table.items))]
 
                 let item
-                if (identyKey === 'id')
-                    item = table.itemsById[currentId]
-                else {
-                    item = filter(table.itemsById, item => item[identyKey] === currentId)[0]
+                if (this.entry && props.histories) {
+                    const histories = getDbStateHistories({
+                        uuid: this.entry.uuid,
+                        modelName: this.entry.model.modelName
+                    })
+
+                    const lastAction = histories[histories.length - 1]
+                    if (lastAction && lastAction.status === 'success') {
+                        const allItems = map(table.itemsById, (o) => o).reverse()
+                        item = allItems.find(o => o.id == lastAction.spec[0])
+                    }
                 }
 
                 // Khi function getId được gọi nhưng không trả về giá trị

@@ -4,26 +4,26 @@ import * as classNames from 'classnames'
 require('./style.scss')
 
 interface LayoutProps {
-    Component?: React.ReactType
-    Wrapper?: React.ReactType
+    component?: React.ReactType
+    wrapper?: React.ReactType
 }
 
 export function Layout(props: LayoutProps & React.HTMLProps<any>) {
     const element = (
-        <props.Component {...props} className={classNames(props.className, 'easyspa-layout')}>
+        <props.component {...props} className={classNames(props.className, 'easyspa-layout')}>
             {props.children}
-        </props.Component>
+        </props.component>
     )
-    if (!props.Wrapper)
+    if (!props.wrapper)
         return element
 
     return (
-        <props.Wrapper>{element}</props.Wrapper>
+        <props.wrapper>{element}</props.wrapper>
     )
 }
 
 Layout['defaultProps'] = {
-    Component: 'div'
+    component: 'div'
 } as LayoutProps
 
 export function LayoutHasSider(props: React.HTMLProps<any>) {

@@ -9,8 +9,8 @@ interface OwnProps extends React.HTMLProps<any> {
     w100?: boolean,
     h100?: boolean
 
-    Component?: React.ReactType
-    Wrapper?: React.ReactType
+    component?: React.ReactType
+    wrapper?: React.ReactType
 }
 
 export function Content(props: OwnProps) {
@@ -31,17 +31,19 @@ export function Content(props: OwnProps) {
     newProps.h100 && delete newProps.h100
 
     const element = (
-        <props.Component {...newProps} className={className}/>
+        <props.component {...newProps} className={className}/>
     )
 
-    if (!props.Wrapper)
+    if (!props.wrapper)
         return element
 
     return (
-        <props.Wrapper>{element}</props.Wrapper>
+        <props.wrapper>{element}</props.wrapper>
     )
 }
 
-Content['defaultProps'] = {
-    Component: 'div'
+const defaultProps: OwnProps = {
+    component: 'div'
 }
+
+Content['defaultProps'] = defaultProps

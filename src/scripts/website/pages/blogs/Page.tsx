@@ -54,7 +54,6 @@ export class Page extends React.Component<PageProps> {
                                             )
                                         })
                                     }
-
                                 </FullScreenCarousel>
                             }
 

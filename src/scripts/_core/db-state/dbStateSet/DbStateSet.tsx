@@ -26,7 +26,7 @@ export class DbStateSet<T extends BaseDbStateEntry> {
     currentItemCount = 0
     appendNext = false
     // Auto generate id
-    setId = uuidv4()
+    uuid = uuidv4()
     // To log all called actions
     actionHistories = []
     length = 0
@@ -87,7 +87,7 @@ export class DbStateSet<T extends BaseDbStateEntry> {
 
     private getHistories() {
         const histories = getDbStateHistories({
-            setId: this.setId,
+            uuid: this.uuid,
             modelName: this.model.modelName
         })
         return histories
@@ -169,7 +169,7 @@ export class DbStateSet<T extends BaseDbStateEntry> {
             apiPayload.meta = {}
 
         apiPayload.meta.history = true
-        apiPayload.meta.setId = this.setId
+        apiPayload.meta.setId = this.uuid
         apiPayload.meta.action = params.actionName
         apiPayload.meta.modelName = this.model.modelName
 

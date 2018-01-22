@@ -34,6 +34,7 @@ export interface DbStateEntryOptions {
     getId?(ownProps: {}): any
     identyKey?: string
     withRouter?: boolean
+    customAction?: string
 }
 
 export interface DbStateSetProps {
@@ -64,9 +65,12 @@ export interface CallActionParams {
 }
 
 export interface Meta {
+    uuid?: string
+    modelName?: string
     pagination?: Pagination
     action?: string
     resultOnly?: boolean
+    history?: boolean
 }
 
 export interface Pagination {

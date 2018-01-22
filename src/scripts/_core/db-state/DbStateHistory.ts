@@ -11,17 +11,17 @@ export interface DbStateHistory {
     meta?: Meta
 }
 
-export function getDbStateHistories({ setId, modelName }) {
+export function getDbStateHistories({ uuid, modelName }) {
     const lastSession = getSession()
     const dbState = lastSession.state
     const historyTable = dbState[`${modelName}_history`]
     const historyItems: Array<DbStateHistory> = historyTable.itemsById
 
-    const histories = filter(historyItems, history => {
-        if (!history.meta.setId)
+    const histories = filter(historyItems, (history: DbStateHistory) => {
+        if (!history.meta.uuid)
             return history.meta.modelName === modelName
         
-        return history.meta.setId === setId
+        return history.meta.uuid === uuid
             && history.meta.modelName === modelName
     })
 

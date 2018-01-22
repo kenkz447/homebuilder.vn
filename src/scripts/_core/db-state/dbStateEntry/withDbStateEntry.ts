@@ -9,7 +9,8 @@ export function withDbStateEntry(options: DbStateEntryOptions) {
         
         return {
             [modelName]: state.dbState[modelName],
-            router: options.withRouter && state.router
+            router: options.withRouter && state.router,
+            histories: state.dbState[`${options.modelName}_history`]
         }
     }
 
