@@ -1,6 +1,9 @@
 import { ShowNotificationBind } from 'scripts/_services/antd-notification'
 
-window.onerror = function(msg, url, line, col, error) {
+window.onerror = function (msg, url, line, col, error) {
+    if (!window['__DEV__'])
+        return
+    
     // Note that col & error are new to the HTML 5 spec and may not be 
     // supported in every browser.  It worked for me in Chrome.
     var extra = !col ? '' : '\ncolumn: ' + col

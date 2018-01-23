@@ -1,6 +1,7 @@
 import { BaseDbStateEntry, DbStateModel, APISet } from 'scripts/_core'
 import { FileInfo } from './file-info'
 import { API_PREFIX } from 'scripts/_dbState/base'
+import { Taxonomy } from './taxonomy'
 
 export interface Blog extends BaseDbStateEntry {
     name?: string
@@ -9,6 +10,7 @@ export interface Blog extends BaseDbStateEntry {
     description?: string
     content?: string
     publicDate?: string
+    tagTaxonomies?: Array<Taxonomy>
 }
 
 export class BlogModel extends DbStateModel<Blog> {

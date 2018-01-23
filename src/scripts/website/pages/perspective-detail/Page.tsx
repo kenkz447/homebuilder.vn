@@ -52,7 +52,7 @@ export class Page extends React.Component<PageProps> {
                         </Col>
                     </Row>
                     <label className="font-weight-bold text-black text-uppercase">What's include in this Package</label>
-                    <Row gutter={15} className="white-section mb-4">
+                    <Row gutter={15} className="white-section mb-4" type="flex">
                         {
                             packageIncludedItems.map(o => (
                                 <Col key={o.id} span={8} md={{ span: 4 }} lg={{ span: 3 }}>
@@ -67,7 +67,7 @@ export class Page extends React.Component<PageProps> {
                         }
                     </Row>
                     <label className="font-weight-bold text-black text-uppercase">Funitures Included</label>
-                    <Row gutter={15} className="white-section mb-4">
+                    <Row gutter={15} className="white-section mb-4" type="flex">
                         {
                             packageFurnitureIncludedItems.map(o => (
                                 <Col key={o.id} span={8} md={{ span: 4 }} lg={{ span: 3 }}>

@@ -32,7 +32,7 @@ export class Page extends React.Component<PageProps> {
                     <Row gutter={30}>
                         <Col span={24} lg={{ span: 12 }}>
                             <Row type="flex">
-                                <Col span={10} lg={{ span: 24 }}>
+                                <Col span={24} md={{ span: 12 }} lg={{ span: 24 }}>
                                     <div className="layout-detail-info-wrapper">
                                         <div className="layout-detail-info">
                                             <h1 className="project-detail-title">{layout.label}</h1>

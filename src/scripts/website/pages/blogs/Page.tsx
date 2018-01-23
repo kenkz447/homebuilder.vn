@@ -68,19 +68,21 @@ export class Page extends React.Component<PageProps> {
                     <Content className="main">
                         <ul className="post-list mt-0 mt-md-5">
                             {
-                                oldPost.map(o => {
+                                oldPost.map(blog => {
                                     return (
-                                        <li key={o.id} className="post-item mb-4 mb-md-5">
-                                            <label className="post-date d-none">JAN {o}</label>
+                                        <li key={blog.id} className="post-item mb-4 mb-md-5">
+                                            <label className="post-date d-none">JAN {blog}</label>
                                             <div className="post-item-preview d-md-none">
                                                 <ImgWrapper ratioX={4} ratioY={3}>
-                                                    <Img baseOn="height" srcPrefix={HOST_ORIGIN} src={o.avatar.src} />
+                                                    <Img baseOn="height" srcPrefix={HOST_ORIGIN} src={blog.avatar.src} />
                                                 </ImgWrapper>
                                             </div>
-                                            <AppNavLink to={BlogDetailPath.path.replace(':blog', o.name)} className="smooth">
-                                                <h1 className="mb-0">{o.title}</h1>
-                                                <small className="d-none">Passion, Design, webdevelopment</small>
-                                                <p className="pt-2">{o.description}</p>
+                                            <AppNavLink to={BlogDetailPath.path.replace(':blog', blog.name)} className="smooth">
+                                                <h1 className="mb-0">{blog.title}</h1>
+                                                {
+                                                    blog.tagTaxonomies && <small className="text-capitalize">{blog.tagTaxonomies.map((o, i) => `${o.label}${i !== blog.tagTaxonomies.length - 1 ? ', ' : ''}`)}</small>
+                                                }
+                                                <p className="pt-2">{blog.description}</p>
                                             </AppNavLink>
                                         </li>
                                     )
