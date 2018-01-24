@@ -9,7 +9,7 @@ interface PrevBlogProps {
     prevBlog?: DbStateEntry<Blog>
 }
 
-@withDbStateEntry({
+@withDbStateEntry({ 
     modelName: BlogModel.modelName,
     toProp: nameof<PrevBlogProps>(o => o.prevBlog),
     customAction: nameof(BlogModel.apiSet.getPrevBlog),

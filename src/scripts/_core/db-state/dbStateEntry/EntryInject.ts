@@ -40,19 +40,23 @@ export function EntryInject(entryOptions: DbStateEntryOptions, ElementType) {
                 const currentId = (entryOptions.getId && entryOptions.getId(props)) ||
                     table.items[table.items.indexOf(Math.max.apply(Math, table.items))]
 
-                let item
-                if (this.entry && props.histories) {
-                    const histories = getDbStateHistories({
-                        uuid: this.entry.uuid,
-                        modelName: this.entry.model.modelName
-                    })
+                let item = undefined
+                if (this.entry)
+                    if (currentId == this.entry[identyKey] && props.histories) {
+                        const histories = getDbStateHistories({
+                            uuid: this.entry.uuid,
+                            modelName: this.entry.model.modelName,
+                            
+                        })
 
-                    const lastAction = histories[histories.length - 1]
-                    if (lastAction && lastAction.status === 'success') {
-                        const allItems = map(table.itemsById, (o) => o).reverse()
-                        item = allItems.find(o => o.id == lastAction.spec[0])
+                        const lastAction = histories[histories.length - 1]
+                        if (lastAction &&
+                            lastAction.status === 'success'
+                        ) {
+                            const allItems = map(table.itemsById, (o) => o).reverse()
+                            item = allItems.find(o => o.id == lastAction.spec[0])
+                        }
                     }
-                }
 
                 // Khi function getId được gọi nhưng không trả về giá trị
                 // set item = null ngăn Entry gọi lại API

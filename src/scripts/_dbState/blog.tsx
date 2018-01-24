@@ -32,12 +32,14 @@ export class BlogModel extends DbStateModel<Blog> {
         getPrevBlog: ({ id }) => {
             const apiURL = new URL(`${BlogModel.apiBase}/prev/${id}`)
             return {
+                name: nameof<APISet>(o => o.get),
                 url: apiURL.toString()
             }
         },
         getNextBlog: ({ id }) => {
             const apiURL = new URL(`${BlogModel.apiBase}/next/${id}`)
             return {
+                name: nameof<APISet>(o => o.get),
                 url: apiURL.toString()
             }
         }

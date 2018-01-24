@@ -43,7 +43,7 @@ export class DbStateEntry<T extends BaseDbStateEntry> {
 
         const entryMeta: Meta = {
             history: true,
-            action: params.actionName,
+            action: apiPayload.name || params.actionName,
             modelName: this.model.modelName,
             uuid: this.uuid
         }
@@ -67,6 +67,8 @@ export class DbStateEntry<T extends BaseDbStateEntry> {
 
         if (props.value)
             this.value = props.value
+        
+        this[props.identyKey] = props[props.identyKey]
 
         if (props.value === null) {
             props[props.identyKey] ? this.callAction({ actionName: props.customAction || nameof<APISet<T>>(o => o.get), value: { [props.identyKey]: props[props.identyKey] } }) :

@@ -1,6 +1,7 @@
 import { ORM } from 'redux-orm'
 import { initORM, getORM, getSession, sessionEnd, sessionStart } from './orm'
 import { createDbStateHistoryModel } from './DbStateHistory'
+import { FETCH_START, FETCH_COMPLETE, FETCH_ERROR, FETCH_SUCCESS } from 'scripts/_core/fetch'
 
 function proxyClassForORM(klass) {
     const proxy = new Proxy(klass, {
@@ -24,7 +25,7 @@ export function initDbState(models) {
     for (const model of models) {
         orm.register(proxyClassForORM(model))
 
-        const clone = createDbStateHistoryModel({modelName: `${model.modelName}_history`})
+        const clone = createDbStateHistoryModel({ modelName: `${model.modelName}_history` })
         const modelHistory = proxyClassForORM(clone, )
         orm.register(modelHistory)
     }
@@ -66,18 +67,42 @@ function defaultUpdater(dbState, action) {
 
     const orm = getORM()
     const models = orm.getModelClasses()
-    
+
     if (!dbState)
         return orm.getEmptyState()
 
     const session = sessionStart(dbState)
 
-    for (const model of models) {
-        if (!model.reducer)
-            continue
+    if (action.type === FETCH_START ||
+        action.type === FETCH_COMPLETE ||
+        action.type === FETCH_ERROR ||
+        action.type === FETCH_SUCCESS
+    )
+        for (const model of models) {
+            if (!model.reducer)
+                continue
 
-        model.reducer(action, session)
-    }
+            if (action.payload &&
+                action.payload.meta &&
+                action.payload.meta.modelName !== model.modelName
+            )
+                continue
+
+            else if (action.payload &&
+                action.payload.request &&
+                action.payload.request.meta &&
+                action.payload.request.meta.modelName !== model.modelName
+            )
+                continue
+
+            model.reducer(action, session)
+
+            const historyModel = models.find(o => o.modelName === `${model.modelName}_history`)
+            if(historyModel)
+                historyModel.reducer(action, session)
+
+            break
+        }
 
     return sessionEnd()
 }

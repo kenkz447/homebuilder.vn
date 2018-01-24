@@ -8,7 +8,7 @@ import { RouteComponentProps, withRouter } from 'react-router'
 import { stateToHTML } from 'draft-js-export-html'
 import { convertFromRaw } from 'draft-js'
 
-import { NextBlog, PrevBlog } from './containers'
+import { PrevBlog } from './containers'
 
 interface PageProps extends RouteComponentProps<{ blog: string }> {
     blog: DbStateEntry<Blog>
@@ -52,7 +52,6 @@ export class Page extends React.Component<PageProps> {
                         <div className="blog-detail-navigation mb-5">
                             <Row gutter={10}>
                                 <Col span={12}><PrevBlog blogId={blog.id} /></Col>
-                                <Col span={12}><NextBlog blogId={blog.id} /></Col>
                             </Row>
                         </div>
                     </Content>
