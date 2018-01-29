@@ -4,6 +4,8 @@ import { RoomLayout, RoomLayoutModel, LayoutPoint } from './room-layout'
 import { Package, PackageModel } from './package'
 import { Product, ProductModel } from './product'
 import { Blog, BlogModel } from './blog'
+import { Setting, SettingModel } from './setting'
+
 import { FileInfo } from './file-info'
 
 export {
@@ -12,7 +14,8 @@ export {
     Package, PackageModel,
     Product, ProductModel,
     LayoutPoint, FileInfo,
-    Blog, BlogModel
+    Blog, BlogModel,
+    Setting, SettingModel 
 }
 
 export const models = [
@@ -20,5 +23,6 @@ export const models = [
     RoomLayoutModel,
     PackageModel,
     ProductModel,
-    BlogModel
+    BlogModel,
+    SettingModel
 ]

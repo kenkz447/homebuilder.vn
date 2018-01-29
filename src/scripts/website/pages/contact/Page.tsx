@@ -45,7 +45,6 @@ export class Page extends React.Component {
                                                         <div className="input-wrapper">
                                                             <label>Phone no:</label>
                                                             <p className="input-data">000 000 0000</p>
-
                                                         </div>
                                                     </Col>
                                                 </Row>
