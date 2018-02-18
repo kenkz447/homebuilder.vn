@@ -40,9 +40,10 @@ export class Page extends React.Component<PageProps> {
                             <div className="perspective-detail-info">
                                 <h1 className="project-detail-title">{thePackage.title}</h1>
                                 <p className="project-detail-properties">
-                                    <span className="property-name">Area</span>: <strong className="property-value font-family-roboto-mono">{thePackage.area}m<sup>2</sup></strong><br />
-                                    <span className="property-name">House Type</span>: <strong className="property-value font-family-roboto-mono">{thePackage.houseTypeLabel}</strong><br />
-                                    <span className="property-name">Design Theme</span>: <strong className="property-value font-family-roboto-mono">{thePackage.designThemeLabel}</strong><br />
+                                    <span className="property-name">Diện tích</span>: <strong className="property-value font-family-roboto-mono">{thePackage.area}m<sup>2</sup></strong><br />
+                                    <span className="property-name">Giá</span>: <strong className="property-value font-family-roboto-mono">{thePackage.price}</strong><br />
+                                    <span className="property-name">Loại căn hộ</span>: <strong className="property-value font-family-roboto-mono">{thePackage.houseTypeLabel}</strong><br />
+                                    <span className="property-name">Chủ đề</span>: <strong className="property-value font-family-roboto-mono">{thePackage.designThemeLabel}</strong><br />
                                 </p>
                                 <p className="project-detail-description">
                                     {thePackage.sortText}
@@ -51,7 +52,7 @@ export class Page extends React.Component<PageProps> {
                             </div>
                         </Col>
                     </Row>
-                    <label className="font-weight-bold text-black text-uppercase">What's include in this Package</label>
+                    <label className="font-weight-bold text-black text-uppercase">Nội dung bao gồm trong gói này</label>
                     <Row gutter={15} className="white-section mb-4" type="flex">
                         {
                             packageIncludedItems.map(o => (
@@ -66,7 +67,7 @@ export class Page extends React.Component<PageProps> {
                             ))
                         }
                     </Row>
-                    <label className="font-weight-bold text-black text-uppercase">Funitures Included</label>
+                    <label className="font-weight-bold text-black text-uppercase">Nội thất</label>
                     <Row gutter={15} className="white-section mb-4" type="flex">
                         {
                             packageFurnitureIncludedItems.map(o => (
@@ -81,8 +82,8 @@ export class Page extends React.Component<PageProps> {
                             ))
                         }
                     </Row>
-                    <label className="font-weight-bold text-black text-uppercase">Products in this package</label>
-                    <Row gutter={15} className="mb-4">
+                    <label className="font-weight-bold text-black text-uppercase">Sản phẩm</label>
+                    <Row gutter={15} type="flex" className="mb-4">
                         {
                             products.map(o => (
                                 <Col key={o.productId} span={24} md={{ span: 12 }} xl={{ span: 8 }}>

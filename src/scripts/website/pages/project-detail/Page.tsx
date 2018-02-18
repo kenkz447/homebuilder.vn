@@ -51,10 +51,10 @@ export class Page extends React.Component<PageProps> {
                             {this.renderToAllProjectLink({ className: 'back-link d-none d-lg-block' })}
                             <h1 className="project-detail-title">{project.title}</h1>
                             <p className="project-detail-properties">
-                                <span className="property-name">Area</span>: <strong className="property-value font-family-roboto-mono">{project.area}m<sup>2</sup></strong><br />
-                                <span className="property-name">Total apartments</span>: <strong className="property-value font-family-roboto-mono">{project.totalApartment}</strong>
+                                <span className="property-name">Diện tích</span>: <strong className="property-value font-family-roboto-mono">{project.area}m<sup>2</sup></strong><br />
+                                <span className="property-name">Tổng số căn</span>: <strong className="property-value font-family-roboto-mono">{project.totalApartment}</strong>
                             </p>
-                            <span>Budget:</span>
+                            <span>Chi phí:</span>
                             <p className="project-detail-budget font-family-roboto-mono">
                                 {formatCurrency(project.budgetMin)} - {formatCurrency(project.budgetMax)} VNĐ
                             </p>
@@ -69,7 +69,7 @@ export class Page extends React.Component<PageProps> {
                     </Row>
                     <Row>
                         <Col span={24} className="mb-3">
-                            <ul className="list-horizontal room-type-list">
+                            <ul key={this.state.selectedRoomType.id} className="list-horizontal room-type-list">
                                 {
                                     project.projectBlocks.map((roomType, index) => (
                                         <li key={index}>
@@ -114,7 +114,7 @@ export class Page extends React.Component<PageProps> {
         return (
             <AppNavLink className={className} to="/">
                 <Icon type="caret-left" />
-                <span>All Project</span>
+                <span>Tất cả dự án</span>
             </AppNavLink>
         )
     }

@@ -24,7 +24,7 @@ export class Page extends React.Component<HomeProps> {
                 <div>
                     <div className="mb-4 text-center text-xl-left">
                         <h1>What’s on our mind?</h1>
-                        <label>Collection of articles, videos, and resources made by designers at Facebook.</label>
+                        <label>Collection of articles, videos, and resources made by designers at Home Builder.</label>
                     </div>
                     <div className="">
                         <Row gutter={40} type="flex">

@@ -95,7 +95,7 @@
     "scripts": {
         "build": "npm run clean && npm run build:webpack",
         "build:webpack": "cross-env NODE_ENV=production webpack --progress --colors --config webpack.config.prod.js",
-        "clean": "rimraf ../web-app-host/public",
+        "clean": "rimraf ../client-host/public",
         "lint": "tslint --fix --project tsconfig.json",
         "precommit": "npm run lint",
         "start": "node devServer.js",

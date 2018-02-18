@@ -24,20 +24,20 @@ export class LayoutAndImages extends React.Component<LayoutAndImagesProps> {
 
         return (
             <>
-            <Row className="mb-4">
-                <Col span={24} className="mb-2">
-                    <ImgWrapper ratioX={4} ratioY={3} >
-                        <Img srcPrefix={HOST_ORIGIN} src={this.props.layoutImage.src} />
-                        {this.renderArrows()}
-                    </ImgWrapper>
-                </Col>
-                <Col span={24} className="mb-4">
-                    {this.renderImages()}
-                </Col>
-            </Row>
-            <Viewer
-                ref={(element) => this.viewer = element}
-                images={pictures} />
+                <Row className="mb-4">
+                    <Col span={24} className="mb-2">
+                        <ImgWrapper ratioX={4} ratioY={3} style={{ overflow: 'visible' }}>
+                            <Img srcPrefix={HOST_ORIGIN} src={this.props.layoutImage.src} />
+                            {this.renderArrows()}
+                        </ImgWrapper>
+                    </Col>
+                    <Col span={24} className="mb-4">
+                        {this.renderImages()}
+                    </Col>
+                </Row>
+                <Viewer
+                    ref={(element) => this.viewer = element}
+                    images={pictures} />
             </>
         )
     }

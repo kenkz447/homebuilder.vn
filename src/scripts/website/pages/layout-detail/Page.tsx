@@ -2,7 +2,7 @@ import './layout-detail.scss'
 import * as React from 'react'
 import { Row, Col, Img, Icon, QueueAnim, ImgWrapper } from 'scripts/_common/ui-kit'
 import { MainMaster } from '../../layout'
-import { AppNavLink, DbStateEntry, withDbStateEntry } from 'scripts/_core'
+import { AppNavLink, DbStateEntry, withDbStateEntry, formatCurrency } from 'scripts/_core'
 import { PrepectiveDetailPath } from '../../paths'
 import { RouteComponentProps, withRouter } from 'react-router'
 import { RoomLayout, RoomLayoutModel, HOST_ORIGIN } from 'scripts/_dbState'
@@ -37,10 +37,10 @@ export class Page extends React.Component<PageProps> {
                                         <div className="layout-detail-info">
                                             <h1 className="project-detail-title">{layout.label}</h1>
                                             <p className="project-detail-properties">
-                                                <span className="property-name">Area</span>: <strong className="property-value font-family-roboto-mono">{layout.area}m<sup>2</sup></strong><br />
-                                                <span className="property-name">Bed room</span>: <strong className="property-value font-family-roboto-mono">{layout.bedroomCount}</strong><br />
-                                                <span className="property-name">Toilet</span>: <strong className="property-value font-family-roboto-mono">{layout.toiletCount}</strong><br />
-                                                <span className="property-name">Total apartment</span>: <strong className="property-value font-family-roboto-mono">{layout.totalRoomOfLayout}</strong>
+                                                <span className="property-name">Diện tích</span>: <strong className="property-value font-family-roboto-mono">{layout.area}m<sup>2</sup></strong><br />
+                                                <span className="property-name">Số phòng ngủ</span>: <strong className="property-value font-family-roboto-mono">{layout.bedRoomCount}</strong><br />
+                                                <span className="property-name">Số toilet</span>: <strong className="property-value font-family-roboto-mono">{layout.toiletCount}</strong><br />
+                                                <span className="property-name">Tổng số căn</span>: <strong className="property-value font-family-roboto-mono">{layout.totalRoomOfLayout}</strong>
                                             </p>
                                         </div>
                                     </div>
@@ -63,11 +63,16 @@ export class Page extends React.Component<PageProps> {
                                     perspectives.map(perspective => (
                                         <Col key={perspective.id} span={12} md={{ span: 12 }}>
                                             <AppNavLink to={PrepectiveDetailPath.path.replace(':perspective', perspective.package.name)}>
-                                                <div className="perspective-item mb-3">
-                                                    <ImgWrapper ratioX={4} ratioY={3}>
-                                                        <Img srcPrefix={HOST_ORIGIN} src={perspective.package.avatar.src} />
-                                                    </ImgWrapper>
-                                                    <label className="perspective-item-label">{perspective.label}</label>
+                                                <div className="mb-3">
+                                                    <div className="perspective-item mb-3">
+                                                        <ImgWrapper ratioX={4} ratioY={3}>
+                                                            <Img srcPrefix={HOST_ORIGIN} src={perspective.package.avatar.src} />
+                                                        </ImgWrapper>
+                                                    </div>
+                                                    <div className="ml-2">
+                                                        <h4 className="perspective-item-title">{perspective.package.title}</h4>
+                                                        <small className="perspective-item-price font-family-roboto-mono">{formatCurrency(perspective.package.price)} VNĐ</small>
+                                                    </div>
                                                 </div>
                                             </AppNavLink>
                                         </Col>

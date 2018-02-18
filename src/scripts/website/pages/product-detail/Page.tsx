@@ -59,9 +59,9 @@ export class Page extends React.Component<PageProps> {
                                 <h1 className="project-detail-title mb-1">{currentPropduct.productViewModel.title}</h1>
                                 <small className="font-family-roboto-mono d-block mb-3">{currentPropduct.productViewModel.code}</small>
                                 <p className="project-detail-properties">
-                                    <span className="property-name">Size</span>: <strong className="property-value font-family-roboto-mono">{currentPropduct.productViewModel.dimension}</strong><br />
+                                    <span className="property-name">Kích thước</span>: <strong className="property-value font-family-roboto-mono">{currentPropduct.productViewModel.dimension}</strong><br />
                                     <span className="property-name">Branch</span>: <strong className="property-value font-family-roboto-mono">{currentPropduct.productViewModel.brand.label}</strong><br />
-                                    <span className="property-name">Type</span>: <strong className="property-value font-family-roboto-mono">{currentPropduct.productViewModel.type.label}</strong><br />
+                                    <span className="property-name">Loại</span>: <strong className="property-value font-family-roboto-mono">{currentPropduct.productViewModel.type.label}</strong><br />
                                 </p>
                                 <p className="description">
                                     {currentPropduct.productViewModel.description}
@@ -69,8 +69,8 @@ export class Page extends React.Component<PageProps> {
                             </div>
                         </Col>
                     </Row>
-                    <label className="font-weight-bold text-black text-uppercase">Products in same package</label>
-                    <QueueAnim delay={500} component={Row} componentProps={{ gutter: 15, className: 'mb-4' }}>
+                    <label className="font-weight-bold text-black text-uppercase">Sản phẩm cùng bộ</label>
+                    <QueueAnim delay={500} component={Row} componentProps={{ gutter: 15, className: 'mb-4', type: 'flex' }}>
                         {
                             otherProducts.map(o => (
                                 <Col key={o.productId} span={24} md={{ span: 12 }} xl={{ span: 8 }}>
@@ -137,7 +137,7 @@ export class Page extends React.Component<PageProps> {
         return (
             <AppNavLink className={className} to={`${PrepectiveDetailPath.path.replace(':perspective', this.props.package.value.name)}`}>
                 <Icon type="caret-left" />
-                <span>Back to Perspective</span>
+                <span>Xem Package</span>
             </AppNavLink>
         )
     }

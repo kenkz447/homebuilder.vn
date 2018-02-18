@@ -15,6 +15,7 @@ export interface Package extends BaseDbStateEntry {
     sortText?: string
     packageIncludedItems?: Array<Taxonomy>
     packageFurnitureIncludedItems?: Array<Taxonomy>
+    price?: number
     products?: Array<{
         productId: number
         productViewModel: Product

@@ -18,7 +18,7 @@ export interface RoomPerspective extends BaseDbStateEntry {
 export interface RoomLayout extends BaseDbStateEntry {
     area?: number
     label?: string
-    bedroomCount?: string
+    bedRoomCount?: string
     toiletCount?: string
     totalRoomOfLayout?: number
     package?: Package

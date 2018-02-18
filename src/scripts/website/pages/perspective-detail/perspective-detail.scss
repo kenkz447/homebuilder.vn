@@ -11,10 +11,14 @@
     background: #fff;
     &-image {
         float: left;
-        max-width: 125px;
+        max-width: 120px;
     }
     &-info {
         float: left;
+        max-width: calc(100% - 120px);
+        strong {
+            font-size: 13px;
+        }
     }
 }
 
@@ -79,6 +83,7 @@
             border-width: 0 7px 20px;
             border-color: transparent transparent #000;
             position: absolute;
+            z-index: 2;
             -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
             @media screen and (min-width: 768px) {

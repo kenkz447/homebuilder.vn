@@ -62,10 +62,7 @@ module.exports = {
                             // importLoaders: false
                         }
                     }, {
-                        loader: 'postcss-loader',
-                        options: {
-                            sourceMap: true
-                        }
+                        loader: 'postcss-loader'
                     }, {
                         loader: "resolve-url-loader",
                     }, {

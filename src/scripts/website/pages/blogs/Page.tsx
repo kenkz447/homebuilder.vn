@@ -37,6 +37,9 @@ export class Page extends React.Component<PageProps> {
                                 <FullScreenCarousel loop auto>
                                     {
                                         latestPost.map((post) => {
+                                            if (!post.id)
+                                                return null
+                                            
                                             const backgroundImage = `url(${HOST_ORIGIN}${post.avatar.src})`
                                             return (
                                                 <div key={post.id} className="blogs-carousel-item-wrapper" style={{ backgroundImage }}>
@@ -69,6 +72,9 @@ export class Page extends React.Component<PageProps> {
                         <ul className="post-list mt-0 mt-md-5">
                             {
                                 oldPost.map(blog => {
+                                    if (blog.id)
+                                        return null
+                                    
                                     return (
                                         <li key={blog.id} className="post-item mb-4 mb-md-5">
                                             <label className="post-date d-none">JAN {blog}</label>
